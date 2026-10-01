@@ -3,13 +3,13 @@
 A spatial hypermedia exploration completed for **COM 256: Interactive Web Design** at Muhlenberg College. This phase establishes the initial spatial architecture and CSS layout patterns for the *Pain and Memory* installation.
 
 <p align="center">
-  <img src="../assets/screenshots/alpha-text-overlay.png" alt="Alpha Text Overlay Scene" width="700">
+  <img src="../docs/screenshots/03-spatial-hypermedia.png" alt="Alpha Text Overlay Scene" width="700">
 </p>
 
 ## Visual Designs
 
 <p align="center">
-  <img src="../assets/screenshots/alpha-layout-design.png" alt="Alpha Layout System (Scattered)" width="700">
+  <img src="../docs/screenshots/06-layout-archetype.png" alt="Alpha Layout System (Scattered)" width="700">
 </p>
 
 ## What I Built

@@ -3,13 +3,7 @@
 The advanced evolution of the *Pain and Memory* hypermedia system completed for **COM 256: Interactive Web Design** at Muhlenberg College. This phase refines the spatial imagery into high-resolution fixed-stage viewports and transitions from boxed containers into ethereal, typography-first text kernels.
 
 <p align="center">
-  <img src="../assets/screenshots/beta-typographic-kernels.png" alt="Beta Typographic Kernels" width="700">
-</p>
-
-## Visual Designs
-
-<p align="center">
-  <img src="../assets/screenshots/beta-stage-viewport.png" alt="Beta Fixed-Stage Viewport" width="700">
+  <img src="../docs/screenshots/04-typographic-design-system.png" alt="Beta Typographic Kernels" width="700">
 </p>
 
 ## What I Built

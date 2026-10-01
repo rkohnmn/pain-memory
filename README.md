@@ -9,7 +9,7 @@ This repository presents ***Pain and Memory: Memory-Shaped Affective Accumulatio
 ## Visual Overview
 
 <p align="center">
-  <img src="assets/screenshots/title-gateway.png" alt="Pain and Memory Title Gateway" width="850">
+  <img src="docs/screenshots/01-overview.png" alt="Pain and Memory Title Gateway" width="850">
 </p>
 
 ---
@@ -29,7 +29,7 @@ The gateway to the installation features high-craft editorial typography (*Cinze
 The primary navigation nexus connecting the installation's spatial and textual environments.
 
 <p align="center">
-  <img src="assets/screenshots/navigation-portal.png" alt="Navigation Portal Interface" width="850">
+  <img src="docs/screenshots/02-main-workflow.png" alt="Navigation Portal Interface" width="850">
 </p>
 
 - **Dual-Ribbon Grid**: Twelve spatial cells arranged into top and bottom 6-column ribbons featuring grayscale-to-color hover transitions, subtle scaling, and Roman numeral cell labels.
@@ -38,7 +38,7 @@ The primary navigation nexus connecting the installation's spatial and textual e
 - **Corner-Bracketed Card Architecture**: Custom CSS hairline bracket geometry framing the central "Threshold: Absence without Resolution" card.
 
 <p align="center">
-  <img src="assets/screenshots/portal-mobile-responsive.png" alt="Portal Mobile Viewport" width="300">
+  <img src="docs/screenshots/05-mobile-responsive.png" alt="Portal Mobile Viewport" width="300">
   <br>
   <em>Mobile responsive view demonstrating 3-column grid collapse.</em>
 </p>
@@ -49,7 +49,7 @@ The primary navigation nexus connecting the installation's spatial and textual e
 The foundational tier establishing the spatial coordinates and modular CSS layout architecture.
 
 <p align="center">
-  <img src="assets/screenshots/alpha-text-overlay.png" alt="Alpha Text Overlay Scene" width="850">
+  <img src="docs/screenshots/03-spatial-hypermedia.png" alt="Alpha Text Overlay Scene" width="850">
 </p>
 
 - **Polygonal Responsive Image Maps (`alpha/image/`)**: 10 spatial nodes mapping photographic scenes using HTML `<map>` and `<area shape="poly">` hot spots, scaled dynamically via `jquery.rwdImageMaps`.
@@ -57,7 +57,7 @@ The foundational tier establishing the spatial coordinates and modular CSS layou
 - **Consolidated 7-Class Layout System (`alpha/text/design.css`)**: Refactored from ten repetitive single-file stylesheets into a single stylesheet defining 7 spatial layout archetypes (`scattered`, `corridor`, `spiral`, `diagonal`, `loop`, `hinge`, `default`).
 
 <p align="center">
-  <img src="assets/screenshots/alpha-layout-design.png" alt="Alpha Scattered Layout Design" width="850">
+  <img src="docs/screenshots/06-layout-archetype.png" alt="Alpha Scattered Layout Design" width="850">
 </p>
 
 ---
@@ -66,7 +66,7 @@ The foundational tier establishing the spatial coordinates and modular CSS layou
 The advanced evolution of the hypermedia installation, refining spatial imagery into high-resolution fixed-stage viewports and transitioning from card containers to floating text kernels.
 
 <p align="center">
-  <img src="assets/screenshots/beta-typographic-kernels.png" alt="Beta Typographic Kernels" width="850">
+  <img src="docs/screenshots/04-typographic-design-system.png" alt="Beta Typographic Kernels" width="850">
 </p>
 
 - **Typography-First Kernel Design (`beta-text-design.css`)**: Completely discards opaque boxes in favor of ethereal text phrases floating over dark photographic backgrounds with layered drop shadows.
@@ -118,8 +118,10 @@ Academic contextualization and bibliography citing 10 narrative media texts expl
 ├── portal.html                     # Central navigation portal: Dual ribbons & timer
 ├── credits.html                    # Narrative bibliography & academic context
 ├── kohn_EMATRIX.csv                # 5-way hypermedia routing matrix
-├── assets/
-│   └── screenshots/                # Real webpage renders and mobile views
+├── docs/
+│   └── screenshots/                # Real webpage renders and screenshot manifest
+│       ├── README.md               # Screenshot manifest & regeneration guide
+│       └── 01-overview.png ...     # High-resolution retina renders
 ├── alpha/                          # Phase 1: Spatial & layout studies
 │   ├── README.md                   # Alpha phase documentation
 │   ├── image/                      # 10 polygonal responsive image maps + index gallery
