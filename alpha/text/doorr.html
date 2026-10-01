@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>temporal hinge · pain and memory</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link href="design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* =========================================
+           PAGE-SPECIFIC REFINEMENTS
+           Hinge layout — evokes repetition, looping, psychological weight
+        ========================================= */
+        
+        /* Layered gradient overlay — suggests depth of memory */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 45% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Refined container styling — hinge-like, slightly angular feel */
+        .box0 div[id^="container"] {
+            background-color: rgba(25, 25, 30, 0.9);
+            backdrop-filter: blur(3px);
+            border-right: 1px solid rgba(130, 110, 95, 0.45);
+            border-left: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        /* Hover — recurrence intensifying */
+        .box0 div[id^="container"]:hover {
+            background-color: rgba(45, 42, 48, 0.94);
+            border-right-color: rgba(170, 145, 125, 0.7);
+            transform: translate(-50%, -50%) scale(1.01) rotate(0.5deg);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+        }
+        
+        /* Link styling — trapped, cyclical feeling */
+        .box0 div[id^="container"] a {
+            color: #ddd2c8;
+            text-decoration: none;
+            display: block;
+            transition: all 0.28s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Hover — repetition becoming visible, looping */
+        .box0 div[id^="container"] a:hover {
+            color: #f2e8e0;
+            text-shadow: 0 0 4px rgba(190, 165, 145, 0.5);
+            letter-spacing: 0.05em;
+            transition: letter-spacing 0.2s ease;
+        }
+        
+        /* Typographic hierarchy — weight increases with psychological burden */
+        .box0.hinge #container1 a { 
+            font-weight: 500; 
+            letter-spacing: 0.03em;
+        }
+        .box0.hinge #container2 a { 
+            font-weight: 470; 
+        }
+        .box0.hinge #container3 a { 
+            font-weight: 470; 
+        }
+        .box0.hinge #container4 a { 
+            font-weight: 520; 
+            letter-spacing: 0.02em;
+        }
+        .box0.hinge #container5 a { 
+            font-weight: 400; 
+            font-style: italic;
+            color: #c8bcae;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Container 4 — psychological burden gets heavier treatment */
+        .box0.hinge #container4 {
+            border-right-width: 2px;
+            border-right-color: rgba(150, 120, 100, 0.6);
+            background-color: rgba(35, 32, 38, 0.92);
+        }
+        
+        /* Container 5 — agency eroded, feels thinner, fading */
+        .box0.hinge #container5 {
+            border-right-color: rgba(100, 85, 75, 0.4);
+            background-color: rgba(30, 28, 32, 0.88);
+        }
+        
+        .box0.hinge #container5 a {
+            font-style: italic;
+        }
+        
+        /* Line-height for readability */
+        .box0 div[id^="container"] {
+            line-height: 1.42;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box0 div[id^="container"] {
+                backdrop-filter: blur(4px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box0 hinge">
+
+    <div id="container1">
+        <a href="../../beta/image/1103.html">temporal loops reinforcing trauma</a>
+    </div>
+
+    <div id="container2">
+        <a href="../../beta/imagine/hall.html">repeated failure without correction</a>
+    </div>
+
+    <div id="container3">
+        <a href="../image/1103.html">knowledge accumulating without relief</a>
+    </div>
+
+    <div id="container4">
+        <a href="../../beta/image/door.html">memory functioning as psychological burden</a>
+    </div>
+
+    <div id="container5">
+        <a href="">agency eroded through recurrence</a>
+    </div>
+
+</div>
+
+</body>
+</html>

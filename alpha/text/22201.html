@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>friendship as infrastructure · pain and memory</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link href="design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* =========================================
+           PAGE-SPECIFIC REFINEMENTS
+           Structural layout — evokes architecture, stability, then collapse
+        ========================================= */
+        
+        /* Subtle gradient overlay for improved contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.45) 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Refined container styling — structural, architectural feel */
+        .box0 div[id^="container"] {
+            background-color: rgba(28, 28, 32, 0.88);
+            backdrop-filter: blur(3px);
+            border-bottom: 1px solid rgba(160, 140, 120, 0.4);
+            border-left: none;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        /* Hover — structural elements becoming more present */
+        .box0 div[id^="container"]:hover {
+            background-color: rgba(48, 48, 55, 0.94);
+            border-bottom-color: rgba(200, 175, 150, 0.8);
+            transform: translate(-50%, -50%) scale(1.01);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+        }
+        
+        /* Link styling — stable, grounded, then destabilizing on loss */
+        .box0 div[id^="container"] a {
+            color: #e0d8d0;
+            text-decoration: none;
+            display: block;
+            transition: all 0.25s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Hover effect — warmth emerging from stability */
+        .box0 div[id^="container"] a:hover {
+            color: #f0e8e0;
+            text-shadow: 0 0 5px rgba(200, 175, 150, 0.4);
+            letter-spacing: 0.04em;
+        }
+        
+        /* Typographic hierarchy reflecting emotional arc */
+        .box0.structural #container1 a { 
+            font-weight: 550; 
+            letter-spacing: 0.03em;
+            font-size: 1.05em;
+        }
+        .box0.structural #container2 a { 
+            font-weight: 450; 
+        }
+        .box0.structural #container3 a { 
+            font-weight: 450; 
+            font-style: normal;
+        }
+        .box0.structural #container4 a { 
+            font-weight: 500; 
+        }
+        .box0.structural #container5 a { 
+            font-weight: 400; 
+            font-style: italic;
+            color: #c8bcac;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Container 5 gets subtle emotional treatment — loss feels lighter, fading */
+        .box0.structural #container5 {
+            border-bottom-color: rgba(140, 110, 90, 0.5);
+            background-color: rgba(38, 35, 32, 0.88);
+        }
+        
+        .box0.structural #container5:hover {
+            background-color: rgba(55, 48, 44, 0.94);
+        }
+        
+        /* Line-height refinement for readability */
+        .box0 div[id^="container"] {
+            line-height: 1.45;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box0 div[id^="container"] {
+                backdrop-filter: blur(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box0 structural">
+
+    <div id="container1">
+        <a href="../imagine/door.html">friendship as emotional infrastructure</a>
+    </div>
+
+    <div id="container2">
+        <a href="../../beta/image/hall.html">shared routines generating stability</a>
+    </div>
+
+    <div id="container3">
+        <a href="../../beta/text/sensory_memory.html">private language forming intimacy</a>
+    </div>
+
+    <div id="container4">
+        <a href="../image/hall.html">mutual recognition sustaining identity</a>
+    </div>
+
+    <div id="container5">
+        <a href="">loss destabilizing relational ground</a>
+    </div>
+
+</div>
+
+</body>
+</html>

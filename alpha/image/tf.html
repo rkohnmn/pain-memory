@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tf</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="js/ios-orientationchange-fix.min.js"></script>
+    
+<style>
+    #image {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        width:100%;
+    }
+    img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+img.map, map area {
+outline: none;
+}
+</style>
+
+</head>
+    
+<body>
+    
+    
+    
+<div id="image">
+<img src="media/tf.jpg" width="1200" height="900" usemap="#image-map" />
+    
+<map name="image-map">
+    <area target="_self" alt="trans" title="trans" href="../text/doorr.html" coords="3,402,129,228,169,215,372,300,377,311,364,347,384,427,405,493,404,544,413,647,413,698,405,802,393,869,402,896,5,895" shape="poly">
+    <area target="_self" alt="pills" title="pills" href="../imagine/tf.html" coords="908,389,967,389,972,401,979,418,976,431,976,501,902,514" shape="poly">
+    <area target="" alt="art" title="art" href="../imagine/ldr.html" coords="689,165,1002,178,1003,1,690,6" shape="poly">
+    <area shape="rect" title="background" href="../text/tff.html" coords="0,0,1200,900" />  
+</map>
+</div>
+
+
+    
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+	//	alert($(this).attr('alt') + ' clicked');
+	});
+});
+</script>
+
+</body>
+</html>

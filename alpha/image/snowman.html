@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>snowman</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="js/ios-orientationchange-fix.min.js"></script>
+    
+<style>
+    #image {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        width:100%;
+    }
+    img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+img.map, map area {
+outline: none;
+}
+</style>
+
+</head>
+    
+<body>
+    
+    
+    
+<div id="image">
+<img src="media/snowman.jpg" width="1200" height="900" usemap="#image-map" />
+    
+<map name="image-map">
+    <area target="" alt="wall" title="wall" href="../imagine/snowman.html" coords="1,161,957,175,954,467,4,477" shape="poly">
+    <area target="" alt="1865" title="1865" href="../imagine/oculus.html" coords="1046,137,1181,141,1185,229,1050,230" shape="poly">
+    <area target="" alt="snowmaan" title="snowmaan" href="../../beta/image/oculus.html" coords="562,592,578,602,617,605,656,610,701,612,740,617,769,615,787,613,817,612,848,598,869,587,892,563,893,540,886,520,866,495,839,469,828,462,798,454,782,443,793,419,800,403,802,381,932,290,926,279,860,321,801,366,788,335,763,307,770,295,764,276,747,254,732,243,719,236,697,246,673,271,663,289,672,305,665,311,659,297,656,271,646,228,646,252,649,287,658,315,649,339,651,359,644,371,631,386,632,406,642,416,657,423,658,430,645,443,623,454,601,470,579,501,561,539,560,570" shape="poly">
+    <area shape="rect"title="background" href="../../beta/image/snow.html" coords="0,0,1200,900" />   
+</map>
+</div>
+
+
+    
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+	//	alert($(this).attr('alt') + ' clicked');
+	});
+});
+</script>
+
+</body>
+</html>

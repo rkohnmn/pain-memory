@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>snow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="js/ios-orientationchange-fix.min.js"></script>
+    
+<style>
+    #image {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        width:100%;
+    }
+    img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+img.map, map area {
+outline: none;
+}
+</style>
+
+</head>
+    
+<body>
+    
+    
+    
+<div id="image">
+<img src="media/snow.jpg" width="1200" height="900" usemap="#image-map" />
+    
+<map name="image-map">
+    <area target="" alt="street" title="street" href="../imagine/tf.html" coords="291,288,313,288,330,426,373,775,354,765" shape="poly">
+    <area target="" alt="bucket" title="bucket" href="../../beta/imagine/hall.html" coords="439,548,492,528,524,519,592,507,709,496,715,508,714,517,718,537,738,589,732,601,738,637,771,780,764,812,742,832,566,865,543,857" shape="poly">
+    <area target="" alt="indoor" title="indoor" href="../../beta/image/snow.html" coords="687,0,1198,5,1198,897,891,898" shape="poly">
+    <area shape="rect"title="background" href="../../beta/imagine/snowman.html" coords="0,0,1200,900" />   
+</map>
+</div>
+
+
+    
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+	//	alert($(this).attr('alt') + ' clicked');
+	});
+});
+</script>
+
+</body>
+</html>

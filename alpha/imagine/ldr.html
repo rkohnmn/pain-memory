@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>light through loss · ldr</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Background image with subtle enhancement */
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../image/media/ldr.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.93) contrast(1.02);
+        }
+        
+        /* Layered gradient overlay — light diffusion, melancholic depth */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 65% 30%, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.7) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined text container styling */
+        .text-container {
+            position: absolute;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            max-width: 340px;
+            text-align: center;
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+        }
+        
+        .text-container a {
+            display: inline-block;
+            color: #e2d6c8;
+            text-decoration: none;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: clamp(13px, 2.1vw, 19px);
+            line-height: 1.48;
+            padding: 10px 18px;
+            background-color: rgba(26, 24, 32, 0.82);
+            backdrop-filter: blur(3px);
+            border-left: 2px solid rgba(150, 125, 105, 0.55);
+            transition: all 0.28s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        .text-container a:hover {
+            background-color: rgba(54, 48, 60, 0.9);
+            border-left-color: rgba(195, 165, 140, 0.85);
+            color: #fff8ee;
+            letter-spacing: 0.045em;
+            transform: scale(1.01);
+        }
+        
+        /* Central text — attachment maintained through pain */
+        .text-container.central a {
+            background-color: rgba(38, 34, 46, 0.88);
+            border-left-width: 3px;
+            border-left-color: rgba(180, 150, 125, 0.75);
+            font-size: clamp(14px, 2.3vw, 21px);
+        }
+        
+        /* Light source text — foreknowledge poisoning intimacy */
+        .text-container.light a {
+            letter-spacing: 0.03em;
+            background-color: rgba(30, 28, 38, 0.8);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .text-container a {
+                padding: 6px 12px;
+                font-size: clamp(11px, 1.9vw, 15px);
+            }
+            .text-container {
+                max-width: 260px;
+            }
+            .text-container.central a {
+                font-size: clamp(12px, 2.1vw, 17px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
+
+    <!-- Light source — foreknowledge poisoning intimacy -->
+    <div class="text-container light" style="top: 25%; left: 70%;">
+        <a href="../../beta/imagine/snow.html">foreknowledge poisoning intimacy</a>
+    </div>
+
+    <!-- Center emotional space — attachment maintained through pain -->
+    <div class="text-container central" style="top: 50%; left: 50%;">
+        <a href="../../beta/image/corn.html">attachment maintained through pain</a>
+    </div>
+
+    <!-- Shadow corner — melancholia resisting resolution -->
+    <div class="text-container" style="top: 65%; left: 30%;">
+        <a href="../../beta/imagine/2201.html">melancholia resisting resolution</a>
+    </div>
+
+    <!-- Window boundary — anticipatory grief shaping behavior -->
+    <div class="text-container" style="top: 35%; left: 40%;">
+        <a href="../image/hall.html">anticipatory grief shaping behavior</a>
+    </div>
+
+    <!-- Lower interior — identity fused with loss -->
+    <div class="text-container" style="top: 80%; left: 60%;">
+        <a href="#">identity fused with loss</a>
+    </div>
+</body>
+</html>

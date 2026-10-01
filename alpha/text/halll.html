@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>melancholia structure · pain and memory</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link href="design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* =========================================
+           PAGE-SPECIFIC REFINEMENTS
+           Corridor layout — melancholia as persistent structure
+        ========================================= */
+        
+        /* Layered gradient — weight of grief, structured but heavy */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 40%, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.65) 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Refined container styling — architectural, grief as structure */
+        .box0 div[id^="container"] {
+            background-color: rgba(26, 24, 30, 0.88);
+            backdrop-filter: blur(3.5px);
+            border-left: 1px solid rgba(130, 110, 100, 0.4);
+            border-bottom: none;
+            transition: all 0.32s cubic-bezier(0.22, 0.88, 0.38, 1);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.28);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        /* Hover — melancholia momentarily surfacing */
+        .box0 div[id^="container"]:hover {
+            background-color: rgba(52, 48, 58, 0.92);
+            border-left-color: rgba(170, 145, 130, 0.65);
+            transform: translate(-50%, -50%) scale(1.01);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.4);
+        }
+        
+        /* Link styling — heavy, structured, resistant to change */
+        .box0 div[id^="container"] a {
+            color: #d4c8bc;
+            text-decoration: none;
+            display: block;
+            transition: all 0.28s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Hover — grief becoming visible, not resolved */
+        .box0 div[id^="container"] a:hover {
+            color: #ece0d4;
+            text-shadow: 0 0 4px rgba(170, 145, 125, 0.45);
+            letter-spacing: 0.03em;
+        }
+        
+        /* Typographic hierarchy — melancholia as central weight */
+        .box0.corridor #container1 a { 
+            font-weight: 540; 
+            letter-spacing: 0.03em;
+            font-size: 1.02em;
+        }
+        .box0.corridor #container2 a { 
+            font-weight: 500; 
+        }
+        .box0.corridor #container3 a { 
+            font-weight: 480; 
+            font-style: normal;
+        }
+        .box0.corridor #container4 a { 
+            font-weight: 560; 
+            letter-spacing: 0.02em;
+        }
+        .box0.corridor #container5 a { 
+            font-weight: 520; 
+            font-style: italic;
+            color: #c8baac;
+        }
+        
+        /* Container 4 — identity fused with loss gets heaviest weight */
+        .box0.corridor #container4 {
+            border-left-width: 2px;
+            border-left-color: rgba(150, 120, 105, 0.6);
+            background-color: rgba(34, 31, 40, 0.9);
+        }
+        
+        .box0.corridor #container4 a {
+            font-weight: 580;
+        }
+        
+        /* Container 5 — grief as structure, stable but weighted */
+        .box0.corridor #container5 {
+            border-left-color: rgba(110, 90, 80, 0.45);
+        }
+        
+        .box0.corridor #container5 a {
+            font-style: italic;
+        }
+        
+        /* Line-height for readability */
+        .box0 div[id^="container"] {
+            line-height: 1.43;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box0 div[id^="container"] {
+                backdrop-filter: blur(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box0 corridor">
+
+    <div id="container1">
+        <a href="../../beta/imagine/ldr.html">melancholia resisting resolution</a>
+    </div>
+
+    <div id="container2">
+        <a href="../../beta/text/endurance_survival.html">attachment maintained through pain</a>
+    </div>
+
+    <div id="container3">
+        <a href="../../beta/imagine/snow.html">refusal of emotional detachment</a>
+    </div>
+
+    <div id="container4">
+        <a href="../../beta/text/memory_tyranny.html">identity fused with loss</a>
+    </div>
+
+    <div id="container5">
+        <a href="">grief operating as structure</a>
+    </div>
+
+</div>
+
+</body>
+</html>

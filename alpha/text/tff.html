@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>distributed self · pain and memory</title>
+    <link href="design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* =========================================
+           PAGE-SPECIFIC REFINEMENTS
+           Scattered layout — distributed self, fragmented identity
+        ========================================= */
+        
+        /* Layered gradient — fragmentation, dispersal, absence */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.68) 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Refined container styling — scattered, fragmented, distributed */
+        .box0 div[id^="container"] {
+            background-color: rgba(28, 26, 34, 0.86);
+            backdrop-filter: blur(3.5px);
+            border-right: 1px solid rgba(125, 105, 90, 0.42);
+            border-left: none;
+            transition: all 0.32s cubic-bezier(0.22, 0.85, 0.4, 1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.28);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        /* Hover — fragments coalescing momentarily */
+        .box0 div[id^="container"]:hover {
+            background-color: rgba(52, 48, 62, 0.93);
+            border-right-color: rgba(170, 145, 125, 0.65);
+            transform: translate(-50%, -50%) scale(1.01) translateX(2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        
+        /* Link styling — distributed, fragmented, searching */
+        .box0 div[id^="container"] a {
+            color: #d0c2b4;
+            text-decoration: none;
+            display: block;
+            transition: all 0.28s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Hover — fragments seeking wholeness */
+        .box0 div[id^="container"] a:hover {
+            color: #ecdccc;
+            text-shadow: 0 0 5px rgba(170, 145, 125, 0.5);
+            letter-spacing: 0.045em;
+        }
+        
+        /* Typographic hierarchy — scattered weight, distributed emphasis */
+        .box0.scattered #container1 a { 
+            font-weight: 540; 
+            letter-spacing: 0.03em;
+        }
+        .box0.scattered #container2 a { 
+            font-weight: 500; 
+        }
+        .box0.scattered #container3 a { 
+            font-weight: 480; 
+            font-style: normal;
+        }
+        .box0.scattered #container4 a { 
+            font-weight: 520; 
+        }
+        .box0.scattered #container5 a { 
+            font-weight: 560; 
+            font-style: italic;
+            color: #c0b0a2;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Container 5 — identity distributed spatially, central theme, italic */
+        .box0.scattered #container5 {
+            border-right-width: 2px;
+            border-right-color: rgba(115, 90, 75, 0.52);
+            background-color: rgba(36, 32, 44, 0.88);
+        }
+        
+        .box0.scattered #container5 a {
+            font-weight: 580;
+            font-style: italic;
+        }
+        
+        /* Container 1 — self as archive gets distinct emphasis */
+        .box0.scattered #container1 {
+            border-right-color: rgba(145, 120, 100, 0.52);
+        }
+        
+        /* Container 4 — continuity disrupted gets subtle treatment */
+        .box0.scattered #container4 a {
+            transition: all 0.3s ease;
+        }
+        
+        .box0.scattered #container4:hover a {
+            text-shadow: 0 0 6px rgba(155, 130, 110, 0.55);
+        }
+        
+        /* Container 3 — memory externalized materially, floating quality */
+        .box0.scattered #container3 a {
+            transition: all 0.3s ease;
+        }
+        
+        .box0.scattered #container3:hover a {
+            letter-spacing: 0.055em;
+        }
+        
+        /* Line-height for readability */
+        .box0 div[id^="container"] {
+            line-height: 1.44;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box0 div[id^="container"] {
+                backdrop-filter: blur(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box0 scattered">
+
+    <div id="container1">
+        <a href="../image/door.html">self functioning as archive</a>
+    </div>
+
+    <div id="container2">
+        <a href="../../beta/text/friendship_decay.html">objects storing affective residue</a>
+    </div>
+
+    <div id="container3">
+        <a href="../../beta/image/ldr.html">memory externalized materially</a>
+    </div>
+
+    <div id="container4">
+        <a href="../image/snowman.html">continuity psychologically disrupted</a>
+    </div>
+
+    <div id="container5">
+        <a href="">identity distributed spatially</a>
+    </div>
+
+</div>
+
+</body>
+</html>

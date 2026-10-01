@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>self-blame spiral · pain and memory</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link href="design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* =========================================
+           PAGE-SPECIFIC REFINEMENTS
+           Spiral layout — looping, self-blame, recursive thought
+        ========================================= */
+        
+        /* Layered gradient — spiral inward, recursive pressure */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 45% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Refined container styling — spiral, recursive, tightening */
+        .box0 div[id^="container"] {
+            background-color: rgba(27, 25, 32, 0.87);
+            backdrop-filter: blur(3px);
+            border-radius: 2px;
+            border-left: 1px solid rgba(125, 105, 90, 0.45);
+            transition: all 0.35s cubic-bezier(0.25, 0.82, 0.35, 1);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        /* Hover — loop tightening, self-blame intensifying */
+        .box0 div[id^="container"]:hover {
+            background-color: rgba(52, 47, 58, 0.93);
+            border-left-color: rgba(165, 140, 120, 0.65);
+            transform: translate(-50%, -50%) scale(1.01) rotate(0.3deg);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.42);
+        }
+        
+        /* Link styling — recursive, weighted, inescapable */
+        .box0 div[id^="container"] a {
+            color: #cfc2b4;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Hover — loop revealing itself */
+        .box0 div[id^="container"] a:hover {
+            color: #ecdccc;
+            text-shadow: 0 0 5px rgba(165, 140, 120, 0.5);
+            letter-spacing: 0.045em;
+        }
+        
+        /* Typographic hierarchy — recursive, accumulating weight */
+        .box0.spiral #container1 a { 
+            font-weight: 520; 
+            letter-spacing: 0.03em;
+        }
+        .box0.spiral #container2 a { 
+            font-weight: 500; 
+        }
+        .box0.spiral #container3 a { 
+            font-weight: 540; 
+            font-style: normal;
+        }
+        .box0.spiral #container4 a { 
+            font-weight: 480; 
+        }
+        .box0.spiral #container5 a { 
+            font-weight: 580; 
+            font-style: italic;
+            color: #c0b0a0;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Container 3 — imagined alternatives dominating thought gets central weight */
+        .box0.spiral #container3 {
+            border-left-width: 2px;
+            border-left-color: rgba(155, 130, 110, 0.55);
+            background-color: rgba(40, 36, 48, 0.9);
+        }
+        
+        .box0.spiral #container3 a {
+            font-weight: 560;
+        }
+        
+        /* Container 5 — responsibility magnified, heaviest, italic */
+        .box0.spiral #container5 {
+            border-left-color: rgba(110, 85, 70, 0.5);
+            background-color: rgba(34, 30, 42, 0.88);
+        }
+        
+        .box0.spiral #container5 a {
+            font-weight: 600;
+            font-style: italic;
+        }
+        
+        /* Container 1 — self-blame gets distinct emphasis */
+        .box0.spiral #container1 {
+            border-left-color: rgba(140, 115, 95, 0.5);
+        }
+        
+        /* Container 2 — counterfactual memories gets subtle treatment */
+        .box0.spiral #container2 a {
+            transition: all 0.3s ease;
+        }
+        
+        .box0.spiral #container2:hover a {
+            text-shadow: 0 0 6px rgba(150, 125, 105, 0.55);
+        }
+        
+        /* Line-height for readability */
+        .box0 div[id^="container"] {
+            line-height: 1.43;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box0 div[id^="container"] {
+                backdrop-filter: blur(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box0 spiral">
+
+    <div id="container1">
+        <a href="../imagine/tf.html">self-blame looping internally</a>
+    </div>
+
+    <div id="container2">
+        <a href="../../beta/image/door.html">counterfactual memories replayed</a>
+    </div>
+
+    <div id="container3">
+        <a href="../../beta/image/2201.html">imagined alternatives dominating thought</a>
+    </div>
+
+    <div id="container4">
+        <a href="../../beta/image/oculus.html">regret without corrective action</a>
+    </div>
+
+    <div id="container5">
+        <a href="">responsibility magnified by memory</a>
+    </div>
+
+</div>
+
+</body>
+</html>

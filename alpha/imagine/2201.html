@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>echoes in architecture · 2201</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Background image */
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../image/media/2201.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.94) contrast(1.02);
+        }
+        
+        /* Radial gradient overlay for text contrast */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 45% 35%, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.58) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined text container styling */
+        .text-container {
+            position: absolute;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            max-width: 340px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+        }
+        
+        .text-container a {
+            display: inline-block;
+            color: #e8dfd4;
+            text-decoration: none;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: clamp(13px, 2.1vw, 19px);
+            line-height: 1.45;
+            padding: 10px 18px;
+            background-color: rgba(24, 22, 30, 0.8);
+            backdrop-filter: blur(3px);
+            border-left: 2px solid rgba(160, 135, 115, 0.55);
+            transition: all 0.28s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        .text-container a:hover {
+            background-color: rgba(50, 46, 58, 0.9);
+            border-left-color: rgba(200, 175, 150, 0.85);
+            color: #f8efe6;
+            letter-spacing: 0.04em;
+            transform: scale(1.01);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .text-container a {
+                padding: 6px 12px;
+                font-size: clamp(11px, 1.9vw, 15px);
+            }
+            .text-container {
+                max-width: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
+
+    <!-- Sky space — voices persisting -->
+    <div class="text-container" style="top: 18%; left: 35%;">
+        <a href="../../beta/text/relational_pain.html">voices persisting internally</a>
+    </div>
+
+    <!-- Upper window — presence transformed -->
+    <div class="text-container" style="top: 40%; left: 50%;">
+        <a href="../image/tf.html">presence transformed into memory artifact</a>
+    </div>
+
+    <!-- Roofline — memory sedimentation -->
+    <div class="text-container" style="top: 30%; left: 70%;">
+        <a href="../../beta/text/temporal_dissonance.html">memory sedimentation</a>
+    </div>
+
+    <!-- Brick foundation — pain embedded -->
+    <div class="text-container" style="top: 75%; left: 65%;">
+        <a href="../text/11103.html">pain embedded through repetition</a>
+    </div>
+
+    <!-- Framing edge — ordinary spaces charged -->
+    <div class="text-container" style="top: 75%; left: 30%;">
+        <a href="#">ordinary spaces charged with memory</a>
+    </div>
+</body>
+</html>

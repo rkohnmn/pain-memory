@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>door</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="js/ios-orientationchange-fix.min.js"></script>
+    
+<style>
+    #image {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        width:100%;
+    }
+    img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+img.map, map area {
+outline: none;
+}
+</style>
+
+</head>
+    
+<body>
+    
+    
+    
+<div id="image">
+<img src="media/door.jpg" width="1200" height="900" usemap="#image-map" />
+    
+<map name="image-map">
+    <area target="_self" alt="reddoor" title="reddoor" href="../../beta/imagine/snowman.html" coords="237,158,586,199,625,707,289,696,260,401" shape="poly">
+    <area target="_self" alt="yellow" title="yellow" href="../../beta/imagine/snow.html" coords="1107,456,1122,459,1179,458,1184,530,1123,539,1115,539" shape="poly">
+    <area target="_self" alt="bl" title="bl" href="../text/doorr.html" coords="943,56,986,55,991,93,945,95" shape="poly">
+    <area shape="rect"title="background" href="../../beta/imagine/corn.html" coords="0,0,1200,900" />   
+</map>
+</div>
+
+
+    
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+	//	alert($(this).attr('alt') + ' clicked');
+	});
+});
+</script>
+
+</body>
+</html>

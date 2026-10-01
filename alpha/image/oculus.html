@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>oculus</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="js/ios-orientationchange-fix.min.js"></script>
+    
+<style>
+    #image {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        width:100%;
+    }
+    img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+img.map, map area {
+outline: none;
+}
+</style>
+
+</head>
+    
+<body>
+    
+    
+    
+<div id="image">
+<img src="media/oculus.jpg" width="1200" height="900" usemap="#image-map" />
+    
+<map name="image-map">
+    <area target="" alt="rift" title="rift" href="../../beta/imagine/tf.html" coords="381,711,456,756,489,814,487,841,457,857,414,854,436,828,446,816,437,796,419,783,401,780,378,771,354,762,339,757,331,770,352,779,385,791,383,818,389,846,367,829,347,805,333,790,312,757,301,757,290,760,290,775,303,788,322,807,358,853,396,877,411,889,426,898,506,896,530,885,554,860,566,840,583,829,708,897,948,896,1038,823,1036,797,1009,770,968,753,957,739,950,729,926,726,902,717,938,685,958,633,956,599,1003,525,994,507,1012,507,1031,495,1022,459,996,420,955,287,910,216,817,152,797,46,784,31,448,38,417,55,396,71,377,85,347,122,333,156,328,194,396,284,429,316,439,350,434,375,412,385,403,398,405,424,450,439,511,461,516,478,518,528,532,549,515,565,467,602,439,628,386,660" shape="poly">
+    <area target="" alt="upa" title="upa" href="../../beta/imagine/door.html" coords="154,428,181,436,206,438,203,421,215,398,207,382,187,369,170,367,162,360,154,380,147,400,147,413" shape="poly">
+    <area target="" alt="huion" title="huion" href="../imagine/tf.html" coords="118,416,275,475,191,509,131,517,-1,466,-1,454" shape="poly">
+    <area shape="rect"title="background" href="../text/11103.html" coords="0,0,1200,900" />   
+</map>
+</div>
+
+
+    
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+	//	alert($(this).attr('alt') + ' clicked');
+	});
+});
+</script>
+
+</body>
+</html>

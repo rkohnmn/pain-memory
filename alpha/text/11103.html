@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>memory sedimentation · pain and memory</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link href="design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* =========================================
+           PAGE-SPECIFIC REFINEMENTS
+           Preserves existing structure while enhancing
+        ========================================= */
+        
+        /* Overlay for improved text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Refined container styling — maintains original positioning */
+        .box0 div[id^="container"] {
+            background-color: rgba(30, 30, 35, 0.92);
+            backdrop-filter: blur(2px);
+            border-left: 2px solid rgba(180, 160, 140, 0.6);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        /* Enhanced hover state for containers */
+        .box0 div[id^="container"]:hover {
+            background-color: rgba(45, 45, 52, 0.96);
+            border-left-color: rgba(200, 180, 160, 0.9);
+            transform: translate(-50%, -50%) scale(1.02);
+        }
+        
+        /* Link styling — intentional, subtle, emotionally resonant */
+        .box0 div[id^="container"] a {
+            color: #e8e2da;
+            text-decoration: none;
+            display: block;
+            transition: all 0.25s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Hover effect on links — glow + subtle shift */
+        .box0 div[id^="container"] a:hover {
+            color: #f5efe8;
+            text-shadow: 0 0 6px rgba(220, 200, 180, 0.5);
+            letter-spacing: 0.04em;
+        }
+        
+        /* Varied font weights for visual hierarchy within each container */
+        .box0.scattered #container1 a { font-weight: 500; letter-spacing: 0.03em; }
+        .box0.scattered #container2 a { font-weight: 400; }
+        .box0.scattered #container3 a { font-weight: 400; font-style: normal; }
+        .box0.scattered #container4 a { font-weight: 450; }
+        .box0.scattered #container5 a { font-weight: 350; font-style: italic; }
+        
+        /* Ensure base container text is readable */
+        .box0 div[id^="container"] {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.4;
+        }
+        
+        /* Responsive refinement for smaller screens */
+        @media (max-width: 768px) {
+            .box0 div[id^="container"] {
+                backdrop-filter: blur(4px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box0 scattered">
+
+    <div id="container1">
+        <a href="../imagine/ldr.html">memory sedimentation</a>
+    </div>
+
+    <div id="container2">
+        <a href="../image/door.html">emotional residue accumulation</a>
+    </div>
+
+    <div id="container3">
+        <a href="../image/oculus.html">experience layered without release</a>
+    </div>
+
+    <div id="container4">
+        <a href="../../beta/text/relational_pain.html">pain embedded through repetition</a>
+    </div>
+
+    <div id="container5">
+        <a href="">affect hardened over time</a>
+    </div>
+
+</div>
+
+</body>
+</html>

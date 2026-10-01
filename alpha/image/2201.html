@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>2201</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="js/ios-orientationchange-fix.min.js"></script>
+    
+<style>
+    #image {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        width:100%;
+    }
+    img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+img.map, map area {
+outline: none;
+}
+</style>
+
+</head>
+    
+<body>
+    
+    
+    
+<div id="image">
+<img src="media/2201.jpg" width="1200" height="900" usemap="#image-map" />
+ 
+    
+
+<map name="image-map">
+    <area target="_self" alt="window" title="window" href="../../beta/imagine/tf.html" coords="432,361,501,289,611,655,610,670,537,726" shape="poly">
+    <area target="_self" alt="triangle" title="triangle" href="../../beta/image/corn.html" coords="360,355,545,177,453,182" shape="poly">
+    <area target="_self" alt="gutter" title="gutter" href="../../beta/text/temporal_dissonance.html" coords="277,425,309,435,307,458,255,507,250,529,259,534,290,548,340,573,360,592,363,611,336,890,309,896,341,603,237,545,230,536,188,573,168,567,160,546" shape="poly">
+    <area shape="rect"title="background" href="../text/halll.html" coords="0,0,1200,900" />   
+
+</map>
+</div>
+
+
+    
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+	//	alert($(this).attr('alt') + ' clicked');
+	});
+});
+</script>
+
+</body>
+</html>

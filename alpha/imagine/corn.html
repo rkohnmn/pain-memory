@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>fields of recurrence · corn</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Background image with subtle enhancement */
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../image/media/corn.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.93) contrast(1.03) saturate(0.95);
+        }
+        
+        /* Layered gradient overlay for depth and text contrast */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 35%, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined text container styling */
+        .text-container {
+            position: absolute;
+            z-index: 10;
+            transform: translate(-50%, -50%);
+            max-width: 340px;
+            text-align: center;
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+        }
+        
+        .text-container a {
+            display: inline-block;
+            color: #eadfcb;
+            text-decoration: none;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: clamp(13px, 2.1vw, 19px);
+            line-height: 1.48;
+            padding: 10px 18px;
+            background-color: rgba(26, 24, 30, 0.82);
+            backdrop-filter: blur(3px);
+            border-left: 2px solid rgba(155, 130, 105, 0.55);
+            transition: all 0.28s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        .text-container a:hover {
+            background-color: rgba(52, 48, 58, 0.9);
+            border-left-color: rgba(195, 170, 145, 0.85);
+            color: #fff3e6;
+            letter-spacing: 0.045em;
+            transform: scale(1.01);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .text-container a {
+                padding: 6px 12px;
+                font-size: clamp(11px, 1.9vw, 15px);
+            }
+            .text-container {
+                max-width: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="overlay"></div>
+
+    <!-- Horizon line — time as adversary -->
+    <div class="text-container" style="top: 22%; left: 50%;">
+        <a href="../../beta/imagine/oculus.html">time experienced as adversary</a>
+    </div>
+
+    <!-- Dense crop repetition — repeated failure -->
+    <div class="text-container" style="top: 50%; left: 30%;">
+        <a href="../../beta/image/hall.html">repeated failure without correction</a>
+    </div>
+
+    <!-- Depth of field rows — temporal loops -->
+    <div class="text-container" style="top: 60%; left: 70%;">
+        <a href="../../beta/text/temporal_dissonance.html">temporal loops reinforcing trauma</a>
+    </div>
+
+    <!-- Lower growth / rootedness — memory as burden -->
+    <div class="text-container" style="top: 80%; left: 40%;">
+        <a href="../../beta/text/pain_expression.html">memory functioning as psychological burden</a>
+    </div>
+
+    <!-- Sky / inevitability — anticipatory grief -->
+    <div class="text-container" style="top: 15%; left: 70%;">
+        <a href="#">anticipatory grief shaping behavior</a>
+    </div>
+</body>
+</html>

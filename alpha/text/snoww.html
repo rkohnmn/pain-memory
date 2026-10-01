@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>silence accumulation · pain and memory</title>
+    <link href="design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* =========================================
+           PAGE-SPECIFIC REFINEMENTS
+           Default layout — silence, pressure, deferral
+        ========================================= */
+        
+        /* Layered gradient — silence as weight, pressure building */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Refined container styling — quiet, restrained, pressure beneath */
+        .box0 div[id^="container"] {
+            background-color: rgba(26, 24, 30, 0.86);
+            backdrop-filter: blur(3px);
+            border-bottom: 1px solid rgba(130, 110, 95, 0.4);
+            border-left: none;
+            transition: all 0.3s cubic-bezier(0.2, 0.85, 0.4, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        /* Hover — pressure surfacing, silence breaking */
+        .box0 div[id^="container"]:hover {
+            background-color: rgba(48, 44, 54, 0.92);
+            border-bottom-color: rgba(170, 145, 125, 0.65);
+            transform: translate(-50%, -50%) scale(1.01);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.38);
+        }
+        
+        /* Link styling — accumulating, deferred, insufficient */
+        .box0 div[id^="container"] a {
+            color: #d2c4b6;
+            text-decoration: none;
+            display: block;
+            transition: all 0.28s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Hover — words pressing outward */
+        .box0 div[id^="container"] a:hover {
+            color: #ecdccc;
+            text-shadow: 0 0 4px rgba(170, 145, 125, 0.45);
+            letter-spacing: 0.045em;
+        }
+        
+        /* Typographic hierarchy — accumulation, pressure, deferral */
+        .box0.default #container1 a { 
+            font-weight: 520; 
+            letter-spacing: 0.03em;
+        }
+        .box0.default #container2 a { 
+            font-weight: 500; 
+        }
+        .box0.default #container3 a { 
+            font-weight: 480; 
+        }
+        .box0.default #container4 a { 
+            font-weight: 470; 
+            font-style: normal;
+        }
+        .box0.default #container5 a { 
+            font-weight: 540; 
+            font-style: italic;
+            color: #c2b2a2;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Container 5 — communication insufficient gets heaviest weight, italic */
+        .box0.default #container5 {
+            border-bottom-width: 2px;
+            border-bottom-color: rgba(115, 90, 75, 0.5);
+            background-color: rgba(32, 29, 38, 0.88);
+        }
+        
+        .box0.default #container5 a {
+            font-weight: 560;
+        }
+        
+        /* Container 1 — silence as remainder gets distinct emphasis */
+        .box0.default #container1 {
+            border-bottom-color: rgba(145, 120, 100, 0.5);
+        }
+        
+        /* Container 4 — meaning deferred gets subtle treatment */
+        .box0.default #container4 a {
+            transition: all 0.3s ease;
+        }
+        
+        .box0.default #container4:hover a {
+            text-shadow: 0 0 5px rgba(155, 130, 110, 0.5);
+        }
+        
+        /* Line-height for readability */
+        .box0 div[id^="container"] {
+            line-height: 1.44;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box0 div[id^="container"] {
+                backdrop-filter: blur(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box0 default">
+        <div id="container1">
+            <a href="../imagine/snowman.html" target="_blank">Silence as affective remainder</a>
+        </div>
+        <div id="container2">
+            <a href="../../beta/text/sensory_memory.html" target="_blank">Unsaid words accumulating pressure</a>
+        </div>
+        <div id="container3">
+            <a href="../../beta/imagine/snow.html" target="_blank">Missed confessions persisting</a>
+        </div>
+        <div id="container4">
+            <a href="../../beta/imagine/hall.html" target="_blank">Meaning perpetually deferred</a>
+        </div>
+        <div id="container5">
+            <a href="" target="_blank">Communication rendered insufficient</a>
+        </div>
+    </div>
+</body>
+</html>

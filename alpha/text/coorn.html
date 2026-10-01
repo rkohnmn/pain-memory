@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>absence corridor</title>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link href="design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* =========================================
+           PAGE-SPECIFIC REFINEMENTS
+           Corridor layout — evokes passage, echo, absence
+        ========================================= */
+        
+        /* Layered gradient — suggests depth of corridor, fading into absence */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Refined container styling — corridor-like, receding into distance */
+        .box0 div[id^="container"] {
+            background-color: rgba(22, 22, 28, 0.85);
+            backdrop-filter: blur(4px);
+            border-left: none;
+            border-bottom: 1px solid rgba(140, 120, 105, 0.4);
+            transition: all 0.32s cubic-bezier(0.2, 0.9, 0.4, 1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        
+        /* Hover — approaching, becoming present */
+        .box0 div[id^="container"]:hover {
+            background-color: rgba(48, 45, 52, 0.92);
+            border-bottom-color: rgba(180, 155, 135, 0.7);
+            transform: translate(-50%, -50%) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+        
+        /* Link styling — echoes, fading in and out */
+        .box0 div[id^="container"] a {
+            color: #d8cec4;
+            text-decoration: none;
+            display: block;
+            transition: all 0.28s ease;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Hover — voices becoming clearer, presence emerging */
+        .box0 div[id^="container"] a:hover {
+            color: #f2e8df;
+            text-shadow: 0 0 5px rgba(200, 175, 150, 0.45);
+            letter-spacing: 0.04em;
+        }
+        
+        /* Typographic hierarchy — progressive fading into artifact */
+        .box0.corridor #container1 a { 
+            font-weight: 520; 
+            letter-spacing: 0.03em;
+        }
+        .box0.corridor #container2 a { 
+            font-weight: 480; 
+        }
+        .box0.corridor #container3 a { 
+            font-weight: 460; 
+            font-style: normal;
+        }
+        .box0.corridor #container4 a { 
+            font-weight: 440; 
+        }
+        .box0.corridor #container5 a { 
+            font-weight: 380; 
+            font-style: italic;
+            color: #c0b4a8;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Container 5 — presence transformed, lighter, fading */
+        .box0.corridor #container5 {
+            border-bottom-color: rgba(100, 85, 75, 0.35);
+            background-color: rgba(28, 26, 30, 0.85);
+        }
+        
+        .box0.corridor #container5:hover {
+            background-color: rgba(45, 40, 44, 0.9);
+        }
+        
+        /* Container 3 — voices persisting gets subtle emphasis */
+        .box0.corridor #container3 a {
+            transition: all 0.3s ease;
+        }
+        
+        .box0.corridor #container3:hover a {
+            text-shadow: 0 0 8px rgba(190, 165, 145, 0.6);
+        }
+        
+        /* Line-height for readability */
+        .box0 div[id^="container"] {
+            line-height: 1.44;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .box0 div[id^="container"] {
+                backdrop-filter: blur(5px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box0 corridor">
+
+    <div id="container1">
+        <a href="../image/snowman.html">absence without narrative finality</a>
+    </div>
+
+    <div id="container2">
+        <a href="../../beta/image/oculus.html">death lacking emotional closure</a>
+    </div>
+
+    <div id="container3">
+        <a href="../imagine/door.html">voices persisting internally</a>
+    </div>
+
+    <div id="container4">
+        <a href="../image/1103.html">unanswered conversations looping endlessly</a>
+    </div>
+
+    <div id="container5">
+        <a href="">presence transformed into memory artifact</a>
+    </div>
+
+</div>
+
+</body>
+</html>

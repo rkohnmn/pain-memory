@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ldr</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="js/ios-orientationchange-fix.min.js"></script>
+    
+<style>
+    #image {
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        width:100%;
+    }
+    img[usemap] {
+		border: none;
+		height: auto;
+		max-width: 100%;
+		width: auto;
+	}
+img.map, map area {
+outline: none;
+}
+</style>
+
+</head>
+    
+<body>
+    
+    
+    
+<div id="image">
+<img src="media/ldr.jpg" width="1200" height="900" usemap="#image-map" />
+    
+<map name="image-map">
+    <area target="" alt="pills" title="pills" href="../../beta/imagine/snow.html" coords="432,603,451,602,473,602,499,606,506,637,505,747,479,760,463,760,437,754" shape="poly">
+    <area target="" alt="chocolate" title="chocolate" href="../imagine/ldr.html" coords="625,731,743,772,843,764,841,475,795,369,804,356,822,368,832,359,817,340,701,325,664,338,646,453,633,553" shape="poly">
+    <area target="" alt="lego" title="lego" href="../../beta/text/archive_self.html" coords="432,694,72,685,45,643,25,628,14,606,34,602,38,573,54,570,73,582,83,565,96,596,125,563,143,593,170,578,182,564,204,550,240,550,266,558,278,537,257,514,278,479,301,467,327,488,338,513,320,534,344,563,359,563,389,593,401,548,414,586,432,577,438,584,451,584,458,584,483,576,490,578,474,597,438,597,429,605" shape="poly">
+    <area shape="rect"title="background" href="../text/tff.html" coords="0,0,1200,900" />   
+</map>
+</div>
+
+
+    
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('img[usemap]').rwdImageMaps();
+	
+	$('area').on('click', function() {
+	//	alert($(this).attr('alt') + ' clicked');
+	});
+});
+</script>
+
+</body>
+</html>
