@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>relational_pain · transmitted intimacy</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="beta-text-design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Preserve background image */
+        body {
+            background-image: url('../image/media/2201.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+        
+        /* Enhanced overlay for depth and text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 45% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined kernel styling for better hierarchy and interaction */
+        .kernel {
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            z-index: 10;
+            white-space: normal;
+            max-width: 280px;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.5);
+        }
+        
+        .kernel:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9), 0 0 6px rgba(200,180,150,0.4);
+        }
+        
+        /* Primary kernels receive larger sizing and emphasis */
+        .kernel-primary {
+            max-width: 320px;
+        }
+        
+        /* Secondary kernels refined spacing */
+        .kernel-secondary {
+            max-width: 260px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kernel 1: pain transmitted relationally — primary emotional weight -->
+    <div class="kernel kernel-primary" style="top: 20%; left: 40%; font-size: 1.55rem;">
+        <a href="../image/ldr.html"><span class="emph color-2">pain</span> transmitted <span class="emph color-3">relationally</span></a>
+    </div>
+    
+    <!-- Kernel 2: suffering shared through intimacy -->
+    <div class="kernel" style="top: 38%; left: 60%; font-size: 1.25rem; max-width: 270px;">
+        <a href="../image/tf.html">suffering <span class="emph color-4">shared</span> through intimacy</a>
+    </div>
+    
+    <!-- Kernel 3: empathy operating contagiously — central to relational theme -->
+    <div class="kernel" style="top: 55%; left: 30%; font-size: 1.35rem; max-width: 280px;">
+        <a href="../../alpha/text/tff.html">empathy <span class="emph color-5">operating</span> contagiously</a>
+    </div>
+    
+    <!-- Kernel 4: care producing vulnerability -->
+    <div class="kernel" style="top: 72%; left: 55%; font-size: 1.2rem; max-width: 250px;">
+        <a href="../../alpha/text/oculuss.html">care <span class="emph color-6">producing</span> vulnerability</a>
+    </div>
+    
+    <!-- Kernel 5: love framed as emotional risk — culminating relational weight -->
+    <div class="kernel kernel-primary" style="top: 88%; left: 45%; font-size: 1.5rem;">
+        <a href="#">love <span class="emph color-1">framed</span> as emotional risk</a>
+    </div>
+</body>
+</html>

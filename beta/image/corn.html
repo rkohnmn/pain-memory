@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>corn</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script src="js/ios-orientationchange-fix.min.js"></script>
+
+<style>
+/* Center page */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Fixed 1200x900 viewing area */
+.stage {
+    position: relative;
+    width: 1200px;
+    height: 900px;
+    overflow: hidden;
+}
+
+/* Image container */
+#image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Scale image down from 3600x2700 → 1200x900 */
+#image img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Clean up outlines */
+img[usemap],
+map area {
+    border: none;
+    outline: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="stage">
+
+    <div id="image">
+        <img src="media/corn.jpg" width="3600" height="2700" usemap="#image-map" alt="corn image" />
+
+        <map name="image-map">
+            <area href="../../alpha/image/oculus.html"
+                  coords="666,1005,587,1444,11,1129,14,595"
+                  shape="poly">
+
+            <area href="../text/sensory_memory.html"
+                  coords="2918,1326,2937,1730,3592,1517,3586,1107"
+                  shape="poly">
+
+            <area href="../../alpha/text/11103.html"
+                  coords="1798,1730,2330,1552,2307,1953,1805,2099"
+                  shape="poly">
+
+            <area href="../../alpha/image/1103.html"
+                  coords="0,0,3600,2700"
+                  shape="rect">
+        </map>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('img[usemap]').rwdImageMaps();
+});
+</script>
+
+</body>
+</html>

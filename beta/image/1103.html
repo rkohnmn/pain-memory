@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>1103</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script src="js/ios-orientationchange-fix.min.js"></script>
+
+<style>
+/* Center the layout */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Fixed 1200x900 stage */
+.stage {
+    position: relative;
+    width: 1200px;
+    height: 900px;
+    overflow: hidden;
+}
+
+/* Image container */
+#image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Force image to fill the stage */
+#image img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Remove outlines */
+img[usemap],
+map area {
+    border: none;
+    outline: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="stage">
+
+    <div id="image">
+        <img src="media/1103.jpg" width="3600" height="2700" usemap="#image-map" alt="1103 image" />
+
+        <map name="image-map"> 
+            <area href="../../alpha/imagine/1103.html"
+                  coords="692,1476,1089,1466,1102,1011,1061,967,689,951"
+                  shape="poly">
+
+            <area href="../../alpha/image/2201.html"
+                  coords="1401,960,914,941,911,1492,1388,1482"
+                  shape="poly">
+
+            <area href="../../alpha/text/tff.html"
+                  coords="2126,452,2148,550,2199,655,2244,639,2339,525,2387,410,2352,382,2285,356,2202,347,2161,391,2129,499"
+                  shape="poly">
+
+            <area href="../imagine/tf.html"
+                  coords="0,0,3600,2700"
+                  shape="rect">
+        </map>   
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('img[usemap]').rwdImageMaps();
+});
+</script>
+
+</body>
+</html>

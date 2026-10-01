@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>temporal_dissonance · thickened time</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="beta-text-design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Preserve background image */
+        body {
+            background-image: url('../image/media/ldr.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+        
+        /* Enhanced overlay for depth and text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 45% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined kernel styling for better hierarchy and interaction */
+        .kernel {
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+            z-index: 10;
+            white-space: normal;
+            max-width: 310px;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.5);
+        }
+        
+        .kernel:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9), 0 0 6px rgba(160,180,200,0.5);
+        }
+        
+        /* Primary temporal kernels receive larger sizing */
+        .kernel-primary {
+            max-width: 350px;
+        }
+        
+        /* Progress kernel gets final emphasis */
+        .kernel-final {
+            transition: all 0.35s ease;
+        }
+        
+        .kernel-final:hover {
+            letter-spacing: 0.02em;
+        }
+        
+        /* Time thickened kernel receives central treatment */
+        .kernel-central {
+            max-width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kernel 1: temporal dissonance governing perception — primary temporal disruption -->
+    <div class="kernel kernel-primary" style="top: 20%; left: 40%; font-size: 1.55rem;">
+        <a href="../../alpha/text/11103.html"><span class="emph color-2">temporal</span> dissonance governing perception</a>
+    </div>
+    
+    <!-- Kernel 2: past dominating present awareness -->
+    <div class="kernel" style="top: 38%; left: 60%; font-size: 1.25rem; max-width: 280px;">
+        <a href="../imagine/hall.html">past <span class="emph color-4">dominating</span> present awareness</a>
+    </div>
+    
+    <!-- Kernel 3: future constrained by memory — central to temporal dissonance -->
+    <div class="kernel kernel-primary" style="top: 55%; left: 40%; font-size: 1.45rem;">
+        <a href="../../alpha/imagine/1103.html">future <span class="emph color-3">constrained</span> by memory</a>
+    </div>
+    
+    <!-- Kernel 4: time thickened through affect -->
+    <div class="kernel kernel-central" style="top: 72%; left: 55%; font-size: 1.3rem;">
+        <a href="../../alpha/imagine/oculus.html">time <span class="emph color-5">thickened</span> through affect</a>
+    </div>
+    
+    <!-- Kernel 5: progress rendered illusory — culminating temporal collapse -->
+    <div class="kernel kernel-primary kernel-final" style="top: 88%; left: 45%; font-size: 1.5rem;">
+        <a href="#">progress <span class="emph color-1">rendered</span> illusory</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>memory_tyranny · persistent suffering</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="beta-text-design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Preserve background image */
+        body {
+            background-image: url('../image/media/tf.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+        
+        /* Enhanced overlay for depth and text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 45%, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined kernel styling for better hierarchy and interaction */
+        .kernel {
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+            z-index: 10;
+            white-space: normal;
+            max-width: 310px;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.5);
+        }
+        
+        .kernel:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9), 0 0 6px rgba(100,100,80,0.4);
+        }
+        
+        /* Primary tyranny kernels receive larger sizing */
+        .kernel-primary {
+            max-width: 350px;
+        }
+        
+        /* Suffering kernel gets final emphasis */
+        .kernel-final {
+            transition: all 0.35s ease;
+        }
+        
+        .kernel-final:hover {
+            letter-spacing: 0.02em;
+        }
+        
+        /* Memory enforcing narrative tyranny receives central weight */
+        .kernel-core {
+            max-width: 360px;
+        }
+        
+        /* Dark green kernel with enhanced styling */
+        .kernel-green {
+            color: #006400;
+            transition: all 0.3s ease;
+        }
+        
+        .kernel-green a {
+            color: #006400;
+            transition: color 0.25s ease, text-shadow 0.25s ease;
+        }
+        
+        .kernel-green a:hover {
+            color: #228b22;
+            text-shadow: 0 0 6px rgba(34,139,34,0.4);
+        }
+        
+        .kernel-green a span {
+            color: inherit;
+        }
+        
+        /* All links maintain base styling with hover enhancements */
+        .kernel a {
+            transition: all 0.25s ease;
+        }
+        
+        .kernel a:hover {
+            text-shadow: 0 0 6px rgba(200,200,180,0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Kernel 1: memory enforcing narrative tyranny — primary tyranny -->
+    <div class="kernel kernel-core" style="top: 18%; left: 48%; font-size: 1.55rem;">
+        <a href="../../alpha/imagine/hall.html">memory <span class="emph color-3">enforcing</span> narrative tyranny</a>
+    </div>
+    
+    <!-- Kernel 2: events fixed irreversibly -->
+    <div class="kernel" style="top: 35%; left: 30%; font-size: 1.25rem; max-width: 280px;">
+        <a href="../image/tf.html">events <span class="emph color-4">fixed</span> irreversibly</a>
+    </div>
+    
+    <!-- Kernel 3: interpretations endlessly reworked -->
+    <div class="kernel" style="top: 52%; left: 65%; font-size: 1.35rem; max-width: 320px;">
+        <a href="../imagine/ldr.html">interpretations <span class="emph color-2">endlessly</span> reworked</a>
+    </div>
+    
+    <!-- Kernel 4: meaning unstable yet binding — dark green, central paradox -->
+    <div class="kernel kernel-green" style="top: 70%; left: 40%; font-size: 1.3rem; max-width: 300px;">
+        <a href="../image/hall.html">meaning <span class="emph color-5">unstable</span> yet binding</a>
+    </div>
+    
+    <!-- Kernel 5: suffering persisting across retellings — culminating tyranny -->
+    <div class="kernel kernel-primary kernel-final" style="top: 88%; left: 55%; font-size: 1.5rem;">
+        <a href="#">suffering <span class="emph color-1">persisting</span> across retellings</a>
+    </div>
+</body>
+</html>

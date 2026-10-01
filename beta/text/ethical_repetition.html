@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>endurance_survival · muted resistance</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="beta-text-design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Preserve background image */
+        body {
+            background-image: url('../image/media/door.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+        
+        /* Enhanced overlay for depth and text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined kernel styling for better hierarchy and interaction */
+        .kernel {
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+            z-index: 10;
+            white-space: normal;
+            max-width: 300px;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.5);
+        }
+        
+        .kernel:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9), 0 0 6px rgba(173,216,230,0.5);
+        }
+        
+        /* Primary endurance kernels receive larger sizing */
+        .kernel-primary {
+            max-width: 340px;
+        }
+        
+        /* Existence as resistance kernel gets italic emphasis */
+        .kernel-final {
+            transition: all 0.35s ease;
+        }
+        
+        .kernel-final:hover {
+            letter-spacing: 0.02em;
+        }
+        
+        /* Make all non‑spanned text light blue with refined contrast */
+        .kernel a {
+            color: #add8e6;
+            transition: color 0.25s ease;
+        }
+        
+        .kernel a:hover {
+            color: #c6e6ff;
+        }
+        
+        /* Preserve span colors with subtle enhancement */
+        .kernel a span {
+            color: inherit;
+            transition: all 0.25s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kernel 1: endurance replacing triumph — primary resilience -->
+    <div class="kernel kernel-primary" style="top: 18%; left: 48%; font-size: 1.55rem;">
+        <a href="../image/corn.html"><span class="emph color-4">endurance</span> replacing triumph</a>
+    </div>
+    
+    <!-- Kernel 2: persistence framed as survival -->
+    <div class="kernel" style="top: 35%; left: 30%; font-size: 1.25rem; max-width: 280px;">
+        <a href="../../alpha/imagine/door.html">persistence <span class="emph color-2">framed</span> as survival</a>
+    </div>
+    
+    <!-- Kernel 3: continuing despite emotional damage — central to endurance -->
+    <div class="kernel" style="top: 52%; left: 65%; font-size: 1.35rem; max-width: 310px;">
+        <a href="../image/hall.html">continuing <span class="emph color-3">despite</span> emotional damage</a>
+    </div>
+    
+    <!-- Kernel 4: living without resolution -->
+    <div class="kernel" style="top: 70%; left: 40%; font-size: 1.25rem; max-width: 280px;">
+        <a href="../../alpha/imagine/1103.html">living <span class="emph color-5">without</span> resolution</a>
+    </div>
+    
+    <!-- Kernel 5: existence as muted resistance — culminating endurance -->
+    <div class="kernel kernel-primary kernel-final" style="top: 88%; left: 55%; font-size: 1.5rem;">
+        <a href="#">existence as <span class="emph color-1">muted</span> resistance</a>
+    </div>
+</body>
+</html>

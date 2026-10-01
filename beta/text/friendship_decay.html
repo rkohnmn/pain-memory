@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>friendship_decay · silent erosion</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="beta-text-design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Preserve background image */
+        body {
+            background-image: url('../image/media/hall.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+        
+        /* Enhanced overlay for depth and text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 60% 40%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined kernel styling for better hierarchy and interaction */
+        .kernel {
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+            z-index: 10;
+            white-space: normal;
+            max-width: 300px;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.5);
+        }
+        
+        .kernel:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9), 0 0 6px rgba(200,180,150,0.4);
+        }
+        
+        /* Primary decay kernels receive larger sizing */
+        .kernel-primary {
+            max-width: 340px;
+        }
+        
+        /* Loss kernel gets refined emphasis */
+        .kernel-loss {
+            transition: all 0.35s ease;
+        }
+        
+        .kernel-loss:hover {
+            letter-spacing: 0.02em;
+        }
+        
+        /* Slow emotional disappearance kernel receives central treatment */
+        .kernel-central {
+            max-width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kernel 1: friendship eroding gradually — beginning of decay -->
+    <div class="kernel kernel-primary" style="top: 15%; left: 30%; font-size: 1.55rem;">
+        <a href="../imagine/tf.html">friendship <span class="emph color-3">eroding</span> gradually</a>
+    </div>
+    
+    <!-- Kernel 2: distance replacing rupture -->
+    <div class="kernel" style="top: 32%; left: 65%; font-size: 1.25rem; max-width: 280px;">
+        <a href="../imagine/ldr.html">distance <span class="emph color-4">replacing</span> rupture</a>
+    </div>
+    
+    <!-- Kernel 3: slow emotional disappearance — central to decay theme -->
+    <div class="kernel kernel-central" style="top: 48%; left: 45%; font-size: 1.4rem;">
+        <a href="../image/oculus.html">slow emotional <span class="emph color-2">disappearance</span></a>
+    </div>
+    
+    <!-- Kernel 4: connection decaying silently -->
+    <div class="kernel" style="top: 65%; left: 70%; font-size: 1.25rem; max-width: 280px;">
+        <a href="../../alpha/text/halll.html">connection <span class="emph color-5">decaying</span> silently</a>
+    </div>
+    
+    <!-- Kernel 5: loss occurring without spectacle — culminating decay -->
+    <div class="kernel kernel-primary kernel-loss" style="top: 82%; left: 40%; font-size: 1.5rem;">
+        <a href="#">loss <span class="emph color-1">occurring</span> without spectacle</a>
+    </div>
+</body>
+</html>

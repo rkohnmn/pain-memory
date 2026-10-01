@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>tf</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script src="js/ios-orientationchange-fix.min.js"></script>
+
+<style>
+/* Center the layout */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Fixed 1200x900 stage */
+.stage {
+    position: relative;
+    width: 1200px;
+    height: 900px;
+    overflow: hidden;
+}
+
+/* Image container */
+#image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Force image to fill stage */
+#image img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Remove outlines */
+img[usemap],
+map area {
+    border: none;
+    outline: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="stage">
+
+    <div id="image">
+        <!-- Standardized to 3600x2700 -->
+        <img src="media/tf.jpg"
+             width="3600"
+             height="2700"
+             usemap="#image-map"
+             alt="tf image" />
+
+        <map name="image-map">
+            <area href="../text/archive_self.html"
+                  coords="380,642,460,636,631,712,1086,862,1096,929,1080,1075,1216,1466,1194,2681,14,2690,21,1135"
+                  shape="poly">
+
+            <area href="../text/pain_expression.html"
+                  coords="2781,1164,2931,1161,2959,1193,2972,1288,2966,1533,2768,1533,2724,1247"
+                  shape="poly">
+
+            <area href="../../alpha/image/tf.html"
+                  coords="2094,477,3080,512,3058,10,2094,10"
+                  shape="poly">
+
+            <area shape="rect"
+                  title="background"
+                  href="../../alpha/imagine/ldr.html"
+                  coords="0,0,3600,2700">
+        </map>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('img[usemap]').rwdImageMaps();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>oculus</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script src="js/ios-orientationchange-fix.min.js"></script>
+
+<style>
+/* Center page */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Fixed 1200x900 stage */
+.stage {
+    position: relative;
+    width: 1200px;
+    height: 900px;
+    overflow: hidden;
+}
+
+/* Image container */
+#image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Scale image properly */
+#image img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Remove outlines */
+img[usemap],
+map area {
+    border: none;
+    outline: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="stage">
+
+    <div id="image">
+        <!-- Standardized to 3600x2700 -->
+        <img src="media/oculus.jpg"
+             width="3600"
+             height="2700"
+             usemap="#image-map"
+             alt="oculus image" />
+
+        <map name="image-map">
+            <area href="../../alpha/text/tff.html"
+                  coords="1089,99,1216,60,1360,29,1891,41,2126,25,2240,70,2333,111,2355,169,2393,261,2380,359,2355,467,2301,649,2231,747,2107,814,1875,833,994,766,927,677,905,512,933,382,997,258"
+                  shape="poly">
+
+            <area href="../../alpha/imagine/tf.html"
+                  coords="291,1250,784,1418,520,1495,520,1536,463,1552,402,1555,304,1549,5,1415,-2,1336"
+                  shape="poly">
+
+            <area href="../../alpha/image/tf.html"
+                  coords="3042,388,3551,404,3560,10,3029,3"
+                  shape="poly">
+
+            <area href="../text/ethical_repetition.html"
+                  coords="0,0,3600,2700"
+                  shape="rect">
+        </map>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('img[usemap]').rwdImageMaps();
+});
+</script>
+
+</body>
+</html>

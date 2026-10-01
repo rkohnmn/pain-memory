@@ -1,0 +1,68 @@
+/* =========================================
+   GLOBAL STYLES – Beta Text Problem
+   No container backgrounds, only text styling
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Times New Roman', serif;
+}
+
+/* Link styles – subtle and integrated */
+a:link, a:visited, a:hover {
+    text-decoration: none;
+    color: inherit; /* color comes from parent spans */
+}
+
+/* Kernel containers – absolute positioned, no background */
+.kernel {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;                  /* keep phrase on one line */
+    font-size: 1.2rem;                     /* base size, overridden per kernel */
+    line-height: 1.4;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: opacity 0.2s;
+    z-index: 10;
+}
+
+.kernel:hover {
+    opacity: 0.9;
+}
+
+/* Word-level sizing and color classes */
+.kernel .emph {
+    font-size: 1.5em;        /* 150% of parent kernel's font-size */
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.kernel .emph-more {
+    font-size: 1.8em;
+    font-weight: 300;
+}
+
+.kernel .color-1 { color: #e0e0e0; }      /* off-white */
+.kernel .color-2 { color: #c0c0c0; }      /* silver */
+.kernel .color-3 { color: #a0b0c0; }      /* dusty blue */
+.kernel .color-4 { color: #b8a9a9; }      /* muted rose */
+.kernel .color-5 { color: #9ca39c; }      /* sage */
+.kernel .color-6 { color: #d4c4a8; }      /* warm sand */
+
+/* Responsive base size adjustment */
+@media (max-width: 800px) {
+    .kernel {
+        font-size: 1rem;
+    }
+}

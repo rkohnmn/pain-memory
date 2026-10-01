@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>sensory_memory · collapsing time</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="beta-text-design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Preserve background image */
+        body {
+            background-image: url('../image/media/corn.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+        
+        /* Enhanced overlay for depth and text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 45%, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined kernel styling for better hierarchy and interaction */
+        .kernel {
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+            z-index: 10;
+            white-space: normal;
+            max-width: 290px;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.5);
+        }
+        
+        .kernel:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9), 0 0 6px rgba(180,200,210,0.4);
+        }
+        
+        /* Primary sensory kernels receive larger sizing */
+        .kernel-primary {
+            max-width: 320px;
+        }
+        
+        /* Memory resurfacing kernel gets central emphasis */
+        .kernel-central {
+            max-width: 340px;
+            transition: all 0.35s ease;
+        }
+        
+        .kernel-central:hover {
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kernel 1: sensory triggers collapsing time — primary sensory disruption -->
+    <div class="kernel kernel-primary" style="top: 15%; left: 45%; font-size: 1.55rem;">
+        <a href="../../alpha/imagine/corn.html"><span class="emph color-3">sensory</span> triggers <span class="emph color-2">collapsing</span> time</a>
+    </div>
+    
+    <!-- Kernel 2: music reactivating stored affect — auditory memory -->
+    <div class="kernel" style="top: 35%; left: 70%; font-size: 1.25rem; max-width: 280px;">
+        <a href="../imagine/oculus.html">music <span class="emph color-4">reactivating</span> stored affect</a>
+    </div>
+    
+    <!-- Kernel 3: embodied memory resurfacing — central to sensory theme -->
+    <div class="kernel kernel-central" style="top: 52%; left: 40%; font-size: 1.4rem;">
+        <a href="../../alpha/text/tff.html">embodied memory <span class="emph color-5">resurfacing</span> involuntarily</a>
+    </div>
+    
+    <!-- Kernel 4: emotion preceding cognition — sensory primacy -->
+    <div class="kernel" style="top: 70%; left: 60%; font-size: 1.2rem; max-width: 270px;">
+        <a href="../image/2201.html">emotion <span class="emph color-6">preceding</span> cognition</a>
+    </div>
+    
+    <!-- Kernel 5: recall bypassing narrative logic — culminating sensory logic -->
+    <div class="kernel kernel-primary" style="top: 88%; left: 50%; font-size: 1.5rem;">
+        <a href="#">recall <span class="emph color-1">bypassing</span> narrative logic</a>
+    </div>
+</body>
+</html>

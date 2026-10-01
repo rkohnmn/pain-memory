@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>caregiving_labor · emotional exhaustion</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="beta-text-design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Preserve background image */
+        body {
+            background-image: url('../image/media/oculus.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+        
+        /* Enhanced overlay for depth and text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 45%, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.55) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined kernel styling for better hierarchy and interaction */
+        .kernel {
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+            z-index: 10;
+            white-space: normal;
+            max-width: 300px;
+            text-align: center;
+        }
+        
+        .kernel:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+        }
+        
+        /* Enhanced text shadow with warmer glow for caregiving theme */
+        .kernel a {
+            text-shadow: 0 0 5px rgba(255,255,255,0.6), 0 0 10px rgba(255,255,255,0.3);
+            transition: all 0.25s ease;
+            color: inherit;
+        }
+        
+        .kernel a:hover {
+            text-shadow: 0 0 8px rgba(255,245,235,0.8), 0 0 15px rgba(255,235,215,0.5);
+        }
+        
+        /* Primary caregiving kernels receive larger sizing */
+        .kernel-primary {
+            max-width: 340px;
+        }
+        
+        /* Exhaustion kernel gets final emphasis */
+        .kernel-final {
+            transition: all 0.35s ease;
+        }
+        
+        .kernel-final:hover {
+            letter-spacing: 0.02em;
+        }
+        
+        /* Holding pain kernel receives central weight */
+        .kernel-central {
+            max-width: 280px;
+        }
+        
+        /* Secondary trauma kernel gets warm treatment */
+        .kernel-trauma {
+            max-width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kernel 1: caregiving as emotional labor — primary care work -->
+    <div class="kernel kernel-primary" style="top: 18%; left: 50%; font-size: 1.55rem;">
+        <a href="../../alpha/imagine/1103.html">caregiving as <span class="emph color-4">emotional</span> labor</a>
+    </div>
+    
+    <!-- Kernel 2: holding another's pain — central act of care -->
+    <div class="kernel kernel-central" style="top: 35%; left: 30%; font-size: 1.35rem;">
+        <a href="../imagine/tf.html">holding <span class="emph color-2">another's</span> pain</a>
+    </div>
+    
+    <!-- Kernel 3: secondary trauma accumulating — weight of care -->
+    <div class="kernel kernel-trauma" style="top: 52%; left: 70%; font-size: 1.4rem;">
+        <a href="../../alpha/text/snoww.html">secondary trauma <span class="emph color-3">accumulating</span></a>
+    </div>
+    
+    <!-- Kernel 4: love requiring maintenance -->
+    <div class="kernel" style="top: 70%; left: 45%; font-size: 1.25rem; max-width: 290px;">
+        <a href="../../alpha/imagine/snowman.html">love <span class="emph color-5">requiring</span> maintenance</a>
+    </div>
+    
+    <!-- Kernel 5: exhaustion normalized relationally — culminating care burden -->
+    <div class="kernel kernel-primary kernel-final" style="top: 88%; left: 60%; font-size: 1.5rem;">
+        <a href="#">exhaustion <span class="emph color-1">normalized</span> relationally</a>
+    </div>
+</body>
+</html>

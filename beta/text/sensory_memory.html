@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pain_expression</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="beta-text-design.css" rel="stylesheet" type="text/css">
+    
+    <style>
+        /* Preserve background image */
+        body {
+            background-image: url('../image/media/snowman.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+        
+        /* Enhanced overlay for depth and text contrast */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 45% 50%, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.6) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Refined kernel styling for better hierarchy and interaction */
+        .kernel {
+            transition: all 0.32s cubic-bezier(0.2, 0.88, 0.4, 1.05);
+            z-index: 10;
+            white-space: normal;
+            max-width: 310px;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,0.5);
+        }
+        
+        .kernel:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.9), 0 0 6px rgba(178,34,34,0.4);
+        }
+        
+        /* Primary pain kernels receive larger sizing */
+        .kernel-primary {
+            max-width: 340px;
+        }
+        
+        /* Expression failing kernel gets final emphasis */
+        .kernel-final {
+            transition: all 0.35s ease;
+        }
+        
+        .kernel-final:hover {
+            letter-spacing: 0.02em;
+        }
+        
+        /* Emotion overwhelming speech receives central weight */
+        .kernel-central {
+            max-width: 330px;
+        }
+        
+        /* Brick red link styling with hover enhancement */
+        .kernel a {
+            color: #b22222;
+            transition: color 0.25s ease, text-shadow 0.25s ease;
+        }
+        
+        .kernel a:hover {
+            color: #cd5c5c;
+            text-shadow: 0 0 8px rgba(178,34,34,0.5);
+        }
+        
+        /* Spans retain their own colors with subtle enhancement */
+        .kernel a span {
+            color: inherit;
+            transition: all 0.25s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Kernel 1: pain exceeding linguistic capacity — primary failure of language -->
+    <div class="kernel kernel-primary" style="top: 20%; left: 40%; font-size: 1.55rem;">
+        <a href="../../alpha/imagine/ldr.html">pain <span class="emph color-2">exceeding</span> linguistic capacity</a>
+    </div>
+    
+    <!-- Kernel 2: characters unable to articulate suffering -->
+    <div class="kernel" style="top: 38%; left: 60%; font-size: 1.25rem; max-width: 290px;">
+        <a href="../../alpha/text/halll.html">characters <span class="emph color-4">unable</span> to articulate suffering</a>
+    </div>
+    
+    <!-- Kernel 3: emotion overwhelming speech — central to pain expression -->
+    <div class="kernel kernel-central" style="top: 55%; left: 30%; font-size: 1.45rem;">
+        <a href="../imagine/tf.html">emotion <span class="emph color-3">overwhelming</span> speech</a>
+    </div>
+    
+    <!-- Kernel 4: gesture substituting dialogue -->
+    <div class="kernel" style="top: 72%; left: 55%; font-size: 1.25rem; max-width: 280px;">
+        <a href="../../alpha/imagine/oculus.html">gesture <span class="emph color-5">substituting</span> dialogue</a>
+    </div>
+    
+    <!-- Kernel 5: expression persistently failing — culminating silence -->
+    <div class="kernel kernel-primary kernel-final" style="top: 88%; left: 45%; font-size: 1.5rem;">
+        <a href="#">expression <span class="emph color-1">persistently</span> failing</a>
+    </div>
+</body>
+</html>

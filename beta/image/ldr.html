@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>ldr</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<script src="js/ios-orientationchange-fix.min.js"></script>
+
+<style>
+/* Center page */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Fixed 1200x900 stage */
+.stage {
+    position: relative;
+    width: 1200px;
+    height: 900px;
+    overflow: hidden;
+}
+
+/* Image container */
+#image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Scale image correctly */
+#image img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Remove outlines */
+img[usemap],
+map area {
+    border: none;
+    outline: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="stage">
+
+    <div id="image">
+        <!-- FIXED: standardized to 3600x2700 -->
+        <img src="media/ldr.jpg"
+             width="3600"
+             height="2700"
+             usemap="#image-map"
+             alt="ldr image" />
+
+        <map name="image-map">
+            <area href="../../alpha/imagine/door.html"
+                  coords="1277,1835,1388,1813,1468,1825,1496,1845,1503,1927,1512,2283,1477,2302,1401,2302,1312,2296,1293,2280"
+                  shape="poly">
+
+            <area href="../../alpha/image/corn.html"
+                  coords="2113,954,2501,1046,2466,1065,2422,1100,2533,1355,2565,1514,2552,1673,2555,1991,2568,2296,2247,2357,1868,2220,1907,1612,1948,1323,2008,1005"
+                  shape="poly">
+
+            <area href="../imagine/hall.html"
+                  coords="1442,855,1305,830,1201,668,1061,617,851,738,816,763,816,935,898,1056,1083,1100,1261,941,1305,871"
+                  shape="poly">
+
+            <area href="../../alpha/imagine/ldr.html"
+                  coords="0,0,3600,2700"
+                  shape="rect">
+        </map>
+    </div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jQuery-rwdImageMaps-master/jquery.rwdImageMaps.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('img[usemap]').rwdImageMaps();
+});
+</script>
+
+</body>
+</html>
