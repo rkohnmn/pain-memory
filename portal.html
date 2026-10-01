@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal â€” Pain and Memory</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@300;400&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink: #e8e4dc;
+            --ink-dim: #8a8680;
+            --ink-ghost: #3a3835;
+            --page: #0a0908;
+            --seam: rgba(200, 190, 175, 0.10);
+            --seam-bright: rgba(200, 190, 175, 0.26);
+            --gold: #c8b89a;
+            --gold-dim: rgba(200, 184, 154, 0.12);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: var(--page);
+            color: var(--ink);
+            font-family: 'EB Garamond', Georgia, serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* â”€â”€ Grain overlay â”€â”€ */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.028;
+            pointer-events: none;
+            z-index: 200;
+        }
+
+        /* â”€â”€ Page open animation â”€â”€ */
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+           IMAGE STRIPS
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+        .strip {
+            width: 100%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .strip-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2px;
+            width: 100%;
+            background: #000;
+        }
+
+        .strip-item {
+            position: relative;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 0.7s ease forwards;
+        }
+
+        /* stagger each cell */
+        .strip-item:nth-child(1)  { animation-delay: 0.05s; }
+        .strip-item:nth-child(2)  { animation-delay: 0.12s; }
+        .strip-item:nth-child(3)  { animation-delay: 0.19s; }
+        .strip-item:nth-child(4)  { animation-delay: 0.26s; }
+        .strip-item:nth-child(5)  { animation-delay: 0.33s; }
+        .strip-item:nth-child(6)  { animation-delay: 0.40s; }
+
+        .bottom-strip .strip-item:nth-child(1) { animation-delay: 0.80s; }
+        .bottom-strip .strip-item:nth-child(2) { animation-delay: 0.87s; }
+        .bottom-strip .strip-item:nth-child(3) { animation-delay: 0.94s; }
+        .bottom-strip .strip-item:nth-child(4) { animation-delay: 1.01s; }
+        .bottom-strip .strip-item:nth-child(5) { animation-delay: 1.08s; }
+        .bottom-strip .strip-item:nth-child(6) { animation-delay: 1.15s; }
+
+        .strip-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(80%) brightness(0.45) sepia(20%);
+            transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            display: block;
+        }
+
+        /* Thin gold line revealed on hover */
+        .strip-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            transition: border-color 0.4s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .strip-item:hover::after {
+            border-color: rgba(200, 184, 154, 0.35);
+        }
+
+        /* Index number on hover */
+        .strip-item .cell-label {
+            position: absolute;
+            bottom: 0.6rem;
+            right: 0.7rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.58rem;
+            letter-spacing: 0.2em;
+            color: rgba(200, 184, 154, 0);
+            transition: color 0.4s ease;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .strip-item:hover .cell-label {
+            color: rgba(200, 184, 154, 0.7);
+        }
+
+        .strip-item:hover img {
+            filter: grayscale(30%) brightness(0.7) sepia(10%);
+            transform: scale(1.04);
+        }
+
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+           CENTER PANEL
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+        .center-panel {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            position: relative;
+        }
+
+        /* Vignette behind center text */
+        .center-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 80% at 50% 50%,
+                rgba(10, 9, 8, 0.0) 0%,
+                rgba(10, 9, 8, 0.6) 100%);
+            pointer-events: none;
+        }
+
+        .threshold-card {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 640px;
+            width: 100%;
+            padding: 3rem 3.5rem;
+            opacity: 0;
+            animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+        }
+
+        /* Hairline frame â€” four corner brackets instead of full border */
+        .threshold-card::before,
+        .threshold-card::after,
+        .threshold-card .corner-tl,
+        .threshold-card .corner-br {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-color: var(--gold);
+            border-style: solid;
+        }
+
+        /* Top-left bracket */
+        .threshold-card::before {
+            top: 0; left: 0;
+            border-width: 1px 0 0 1px;
+        }
+
+        /* Top-right bracket */
+        .threshold-card::after {
+            top: 0; right: 0;
+            border-width: 1px 1px 0 0;
+        }
+
+        /* Bottom-left bracket */
+        .threshold-card .corner-bl {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            bottom: 0; left: 0;
+            border: 1px solid var(--gold);
+            border-width: 0 0 1px 1px;
+        }
+
+        /* Bottom-right bracket */
+        .threshold-card .corner-br {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            bottom: 0; right: 0;
+            border: 1px solid var(--gold);
+            border-width: 0 1px 1px 0;
+        }
+
+        .threshold-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.62rem;
+            letter-spacing: 0.45em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .threshold-label::before,
+        .threshold-label::after {
+            content: '';
+            display: block;
+            width: 28px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+
+        /* Central phrase â€” typographically layered */
+        .main-phrase {
+            margin-bottom: 1.8rem;
+            line-height: 1.15;
+        }
+
+        .phrase-large {
+            display: block;
+            font-family: 'Cinzel', serif;
+            font-weight: 300;
+            font-size: clamp(1.9rem, 4.5vw, 3rem);
+            letter-spacing: 0.12em;
+            color: var(--ink);
+            text-transform: uppercase;
+        }
+
+        .phrase-connector {
+            display: inline-block;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: clamp(0.95rem, 2vw, 1.25rem);
+            letter-spacing: 0.35em;
+            color: var(--ink-dim);
+            text-transform: lowercase;
+            margin: 0.55rem 0;
+        }
+
+        /* Thin divider */
+        .phrase-rule {
+            width: 40px;
+            height: 1px;
+            background: var(--seam-bright);
+            margin: 1.6rem auto;
+        }
+
+        .residue {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            line-height: 2;
+            color: var(--ink-dim);
+            letter-spacing: 0.02em;
+        }
+
+        /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+           BACK LINK
+        â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+        .back {
+            position: fixed;
+            bottom: 1.6rem;
+            left: 1.8rem;
+            z-index: 100;
+            opacity: 0;
+            animation: fadeIn 0.6s ease 1.4s forwards;
+        }
+
+        .back a {
+            font-family: 'EB Garamond', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--ink-ghost);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.4s ease;
+        }
+
+        .back-arrow {
+            display: inline-block;
+            width: 14px;
+            height: 1px;
+            background: currentColor;
+            position: relative;
+            transition: width 0.3s ease;
+        }
+
+        .back-arrow::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: -3px;
+            width: 6px;
+            height: 6px;
+            border-left: 1px solid currentColor;
+            border-top: 1px solid currentColor;
+            transform: rotate(-45deg);
+        }
+
+        .back a:hover {
+            color: var(--ink-dim);
+        }
+
+        .back a:hover .back-arrow {
+            width: 20px;
+        }
+
+        /* â”€â”€ Inactivity bar â”€â”€ */
+        .inactivity-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            background: var(--seam-bright);
+            transform-origin: left;
+            transform: scaleX(1);
+            transition: none;
+            z-index: 150;
+        }
+
+        .inactivity-bar.counting {
+            transform: scaleX(0);
+            transition: transform 15s linear;
+        }
+
+        /* â”€â”€ Responsive â”€â”€ */
+        @media (max-width: 900px) {
+            .strip-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .strip-item:nth-child(5),
+            .strip-item:nth-child(6) {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .strip-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .strip-item:nth-child(4),
+            .strip-item:nth-child(5),
+            .strip-item:nth-child(6) {
+                display: none;
+            }
+            .threshold-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top strip -->
+    <div class="strip top-strip">
+        <div class="strip-grid">
+            <div class="strip-item" onclick="window.location.href='alpha/image/1103.html'">
+                <img src="alpha/image/media/1103.jpg" alt="1103">
+                <span class="cell-label">I</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/2201.html'">
+                <img src="alpha/image/media/2201.jpg" alt="2201">
+                <span class="cell-label">II</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/corn.html'">
+                <img src="alpha/image/media/corn.jpg" alt="corn">
+                <span class="cell-label">III</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/door.html'">
+                <img src="alpha/image/media/door.jpg" alt="door">
+                <span class="cell-label">IV</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/hall.html'">
+                <img src="alpha/image/media/hall.jpg" alt="hall">
+                <span class="cell-label">V</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/ldr.html'">
+                <img src="alpha/image/media/ldr.jpg" alt="ldr">
+                <span class="cell-label">VI</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Center threshold panel -->
+    <div class="center-panel">
+        <div class="threshold-card">
+            <!-- Corner brackets -->
+            <span class="corner-bl"></span>
+            <span class="corner-br"></span>
+
+            <div class="threshold-label">Threshold</div>
+
+            <div class="main-phrase">
+                <span class="phrase-large">absence</span>
+                <span class="phrase-connector">without</span>
+                <span class="phrase-large">resolution</span>
+            </div>
+
+            <div class="phrase-rule"></div>
+
+            <p class="residue">
+                voices persist internally<br>
+                unanswered conversations looping without reply
+            </p>
+        </div>
+    </div>
+
+    <!-- Bottom strip -->
+    <div class="strip bottom-strip">
+        <div class="strip-grid">
+            <div class="strip-item" onclick="window.location.href='alpha/image/oculus.html'">
+                <img src="alpha/image/media/oculus.jpg" alt="oculus">
+                <span class="cell-label">VII</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/snow.html'">
+                <img src="alpha/image/media/snow.jpg" alt="snow">
+                <span class="cell-label">VIII</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/snowman.html'">
+                <img src="alpha/image/media/snowman.jpg" alt="snowman">
+                <span class="cell-label">IX</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/tf.html'">
+                <img src="alpha/image/media/tf.jpg" alt="tf">
+                <span class="cell-label">X</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/1103.html'">
+                <img src="alpha/image/media/1103.jpg" alt="enter all">
+                <span class="cell-label">XI</span>
+            </div>
+            <div class="strip-item" onclick="window.location.href='alpha/image/2201.html'">
+                <img src="alpha/image/media/2201.jpg" alt="enter all">
+                <span class="cell-label">XII</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back navigation -->
+    <div class="back">
+        <a href="index.html">
+            <span class="back-arrow"></span>
+            Return to Title
+        </a>
+    </div>
+
+    <!-- Inactivity progress bar -->
+    <div class="inactivity-bar" id="inactivityBar"></div>
+
+    <script>
+        /* â”€â”€ Inactivity redirect (15s) with visual bar â”€â”€ */
+        const bar = document.getElementById('inactivityBar');
+        let timer;
+
+        function startTimer() {
+            bar.classList.remove('counting');
+            void bar.offsetWidth; // force reflow to restart transition
+            bar.classList.add('counting');
+
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                window.location.href = 'portal.html';
+            }, 15000);
+        }
+
+        function resetTimer() {
+            startTimer();
+        }
+
+        document.addEventListener('click', resetTimer);
+        document.addEventListener('keydown', resetTimer);
+        document.addEventListener('mousemove', () => {
+            clearTimeout(timer);
+            bar.classList.remove('counting');
+            void bar.offsetWidth;
+            bar.classList.add('counting');
+            timer = setTimeout(() => {
+                window.location.href = 'portal.html';
+            }, 15000);
+        });
+
+        startTimer();
+    </script>
+
+</body>
+</html>
