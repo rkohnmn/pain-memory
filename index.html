@@ -638,7 +638,10 @@
                 'status=no', 'menubar=no', 'scrollbars=yes', 'resizable=yes',
                 `width=${width}`, `height=${height}`, `left=${left}`, `top=${top}`
             ].join(',');
-            window.open('portal.html', 'PainAndMemoryPortal', features);
+            const portalWindow = window.open('portal.html', 'PainAndMemoryPortal', features);
+            if (!portalWindow) {
+                window.location.href = 'portal.html';
+            }
         }
     </script>
  
