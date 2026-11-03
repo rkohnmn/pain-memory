@@ -24,3 +24,7 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Browser regression artifacts
+test-results/
+__pycache__/
