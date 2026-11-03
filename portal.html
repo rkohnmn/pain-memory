@@ -402,6 +402,19 @@
                 padding: 2rem 1.5rem;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-delay: 0ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                transition-delay: 0ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        html[data-page-hidden] *, html[data-page-hidden] *::before,
+        html[data-page-hidden] *::after { animation-play-state: paused !important; }
     </style>
 </head>
 <body>

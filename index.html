@@ -455,6 +455,19 @@
                 margin: 0 0.8rem;
             }
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-delay: 0ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                transition-delay: 0ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        html[data-page-hidden] *, html[data-page-hidden] *::before,
+        html[data-page-hidden] *::after { animation-play-state: paused !important; }
     </style>
 </head>
 <body>
@@ -479,6 +492,19 @@
         .word-memory:hover {
             animation: pulseWord 0.9s ease-in-out infinite;
         }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-delay: 0ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+                transition-delay: 0ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        html[data-page-hidden] *, html[data-page-hidden] *::before,
+        html[data-page-hidden] *::after { animation-play-state: paused !important; }
     </style>
     <!-- Ambient glows -->
     <div class="ambient ambient-1"></div>
@@ -540,93 +566,76 @@
     </div>
  
     <script>
-        /* ── Particle system ── */
+        /* Decorative motion shares one visibility-aware scheduler. */
         (function () {
             const canvas = document.getElementById('particles');
             const ctx = canvas.getContext('2d');
-            let W, H, particles = [];
- 
-            function resize() {
-                W = canvas.width = window.innerWidth;
-                H = canvas.height = window.innerHeight;
-            }
- 
-            resize();
-            window.addEventListener('resize', resize);
- 
-            const COUNT = 55;
- 
-            function createParticle() {
-                return {
-                    x: Math.random() * W,
-                    y: Math.random() * H,
-                    r: Math.random() * 1.2 + 0.2,
-                    alpha: Math.random() * 0.35 + 0.05,
-                    vx: (Math.random() - 0.5) * 0.08,
-                    vy: -Math.random() * 0.12 - 0.03,
-                    decay: Math.random() * 0.0006 + 0.0003,
-                };
-            }
- 
-            for (let i = 0; i < COUNT; i++) {
-                const p = createParticle();
-                p.y = Math.random() * H; // spread on load
-                particles.push(p);
-            }
- 
-            function tick() {
-                ctx.clearRect(0, 0, W, H);
- 
-                for (let i = 0; i < particles.length; i++) {
-                    const p = particles[i];
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.alpha -= p.decay;
- 
-                    if (p.alpha <= 0 || p.y < -10) {
-                        particles[i] = createParticle();
-                        particles[i].y = H + 5;
-                        particles[i].alpha = 0.05;
-                        continue;
-                    }
- 
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(200, 184, 154, ${p.alpha})`;
-                    ctx.fill();
-                }
- 
-                requestAnimationFrame(tick);
-            }
- 
-            tick();
-        })();
- 
-        /* ── Subtle mouse parallax ── */
-        (function () {
             const layers = document.querySelectorAll('.parallax-layer');
+            const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            let frame = null, lastTime = null, width = 0, height = 0;
             let mx = 0, my = 0, cx = 0, cy = 0;
- 
-            window.addEventListener('mousemove', (e) => {
-                mx = (e.clientX / window.innerWidth - 0.5) * 2;
-                my = (e.clientY / window.innerHeight - 0.5) * 2;
-            });
- 
-            function animate() {
-                cx += (mx - cx) * 0.06;
-                cy += (my - cy) * 0.06;
- 
-                layers.forEach(el => {
-                    const d = parseFloat(el.dataset.depth || 0.2);
-                    el.style.transform = `translate(${cx * d * 10}px, ${cy * d * 6}px)`;
-                });
- 
-                requestAnimationFrame(animate);
+            const particles = [];
+            function particle() {
+                return {x: Math.random()*width, y: Math.random()*height,
+                    r: Math.random()*1.2+0.2, alpha: Math.random()*0.35+0.05,
+                    vx: (Math.random()-0.5)*0.08, vy: -Math.random()*0.12-0.03,
+                    decay: Math.random()*0.0006+0.0003};
             }
- 
-            animate();
+            function schedule() {
+                if (frame === null && !motion.matches && !document.hidden) frame = requestAnimationFrame(tick);
+            }
+            function tick(now) {
+                frame = null;
+                if (motion.matches || document.hidden) return;
+                const delta = lastTime === null ? 1 : Math.min(3, (now-lastTime)/16.667);
+                lastTime = now;
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach((p, i) => {
+                    p.x += p.vx*delta; p.y += p.vy*delta; p.alpha -= p.decay*delta;
+                    if (p.alpha <= 0 || p.y < -10) {
+                        particles[i] = particle(); particles[i].y = height+5; particles[i].alpha = 0.05;
+                        return;
+                    }
+                    ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+                    ctx.fillStyle = `rgba(200, 184, 154, ${p.alpha})`; ctx.fill();
+                });
+                const smoothing = 1-Math.pow(0.94, delta);
+                cx += (mx-cx)*smoothing; cy += (my-cy)*smoothing;
+                layers.forEach(el => {
+                    const depth = parseFloat(el.dataset.depth || 0.2);
+                    el.style.transform = `translate(${cx*depth*10}px, ${cy*depth*6}px)`;
+                });
+                schedule();
+            }
+            function syncMotion() {
+                if (frame !== null) cancelAnimationFrame(frame);
+                frame = null; lastTime = null;
+                document.documentElement.toggleAttribute('data-page-hidden', document.hidden);
+                if (motion.matches) {
+                    ctx.clearRect(0, 0, width, height);
+                    mx = my = cx = cy = 0;
+                    layers.forEach(el => { el.style.transform = 'none'; });
+                }
+                schedule();
+            }
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+                schedule();
+            }
+            resize();
+            for (let i=0; i<55; i++) particles.push(particle());
+            window.addEventListener('resize', resize);
+            window.addEventListener('mousemove', e => {
+                if (motion.matches || document.hidden) return;
+                mx = (e.clientX/window.innerWidth-0.5)*2;
+                my = (e.clientY/window.innerHeight-0.5)*2;
+            });
+            document.addEventListener('visibilitychange', syncMotion);
+            motion.addEventListener('change', syncMotion);
+            syncMotion();
         })();
- 
+
         /* ── Portal window ── */
         function openPortalWindow() {
             const width = 1200;

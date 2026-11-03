@@ -20,7 +20,43 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 def check(page, context, base):
+    page.add_init_script("""(() => {
+      const request = window.requestAnimationFrame.bind(window);
+      const cancel = window.cancelAnimationFrame.bind(window);
+      window.__frameCount = 0;
+      window.__pendingFrames = new Set();
+      window.requestAnimationFrame = callback => {
+        const id = request(time => { window.__pendingFrames.delete(id); window.__frameCount++; callback(time); });
+        window.__pendingFrames.add(id); return id;
+      };
+      window.cancelAnimationFrame = id => { window.__pendingFrames.delete(id); cancel(id); };
+      window.__setHiddenForTest = value => {
+        Object.defineProperty(document, 'hidden', {configurable:true, get:() => value});
+        document.dispatchEvent(new Event('visibilitychange'));
+      };
+    })()""")
+    page.emulate_media(reduced_motion='reduce')
     page.goto(base)
+    page.wait_for_timeout(150)
+    assert page.evaluate('window.__pendingFrames.size') == 0
+    assert page.evaluate('window.__frameCount') == 0
+    expect(page.locator('.enter-btn')).to_be_visible()
+    page.mouse.move(20, 20)
+    assert page.locator('.parallax-layer').evaluate_all("els => els.every(el => el.style.transform === 'none')")
+    page.emulate_media(reduced_motion='no-preference')
+    page.wait_for_function('window.__frameCount > 3')
+    page.evaluate('window.__setHiddenForTest(true)')
+    assert page.evaluate('window.__pendingFrames.size') == 0
+    count = page.evaluate('window.__frameCount')
+    page.wait_for_timeout(300)
+    assert page.evaluate('window.__frameCount') == count
+    page.evaluate('window.__setHiddenForTest(false)')
+    page.wait_for_function('(count) => window.__frameCount > count', arg=count)
+    page.emulate_media(reduced_motion='reduce')
+    page.wait_for_function('window.__pendingFrames.size === 0')
+    count = page.evaluate('window.__frameCount')
+    page.wait_for_timeout(300)
+    assert page.evaluate('window.__frameCount') == count
     page.evaluate('window.open = () => null')
     page.locator('.enter-btn').click()
     page.wait_for_url('**/portal.html')
